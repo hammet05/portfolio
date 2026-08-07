@@ -29,13 +29,15 @@ jobs:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - run: npm install
+        working-directory: portfolio_app
 
       - run: npm run build -- --configuration production --base-href "/portfolio/"
+        working-directory: portfolio_app
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/portfolio/browser
+          path: portfolio_app/dist/portfolio_app/browser
 
   deploy:
 
