@@ -389,55 +389,55 @@ Do NOT introduce during this specification:
 ## GIT
 
 The project must remain compatible with:
-
+```
 main
 feature/*
-
+```
 Future feature work should be integrated through Pull Requests.
 
 Do not modify unrelated files.
 
-GITHUB ACTIONS
+## GITHUB ACTIONS
 
 Create:
-
+```
 .github/workflows/deploy.yml
-
+```
 The workflow MUST:
 
-Checkout the repository.
-Configure Node.js.
-Use the Node.js version defined by the project.
-Install dependencies using npm ci.
-Build the Angular application in production mode.
-Upload the GitHub Pages artifact.
-Deploy through GitHub Pages.
+- Checkout the repository.
+- Configure Node.js.
+- Use the Node.js version defined by the project.
+- Install dependencies using npm ci.
+- Build the Angular application in production mode.
+- Upload the GitHub Pages artifact.
+- Deploy through GitHub Pages.
 
 The workflow MUST respect the actual repository structure.
 
-If portfolio_app contains package.json, npm commands MUST execute from
+If `portfolio_app` contains package.json, npm commands MUST execute from
 that directory.
 
-DEPENDENCIES AND PACKAGE-LOCK
+## DEPENDENCIES AND PACKAGE-LOCK
 
-package.json and package-lock.json MUST remain synchronized.
+`package.json` and `package-lock.json` MUST remain synchronized.
 
 CI/CD MUST use:
-
+```
 npm ci
-
+```
 The lockfile MUST remain committed to Git.
 
 Do not manually edit package-lock.json unless there is a specific technical
 reason.
 
 When dependencies change:
-
+```
 npm install
-
+```
 must update the lockfile, and both files MUST be included in the change.
 
-GITHUB PAGES
+## GITHUB PAGES
 
 Configure the application for the initial GitHub Pages deployment.
 
@@ -445,103 +445,105 @@ The Angular build MUST use the appropriate base-href for the repository
 name.
 
 The application must work from:
-
+```
 https://<user>.github.io/<repository>/
-
+```
 The actual repository/user values MUST come from the real repository
 configuration and MUST NOT be invented.
 
-LOCAL VALIDATION
+## LOCAL VALIDATION
 
 The specification MUST allow validation using:
-
+``` bash
 cd portfolio_app
 
 npm ci
 npm run build
-
+```
 And, when configured:
-
+```bash
 npm run lint
 npm run format:check
-
+```
 All configured validation commands MUST complete successfully.
 
-ACCEPTANCE CRITERIA
-The Angular application starts locally without errors.
-npm ci installs dependencies successfully.
-package.json and package-lock.json remain synchronized.
-The production build completes successfully.
-ESLint passes without errors.
-Prettier validation passes when configured.
-The Angular application contains the following architectural structure:
-core/
-shared/
-layout/
-features/
-A functional AppShell exists.
-A functional SiteHeader exists.
-A functional SiteFooter exists.
-Functional mobile navigation exists.
-A functional / route exists.
-The design system uses centralized design tokens.
-The application uses the responsive layout defined in
-instructions.frontend.md.
-Navigation is accessible using a keyboard.
-Focus states are visible.
-Interactive controls have accessible names.
-GitHub Actions can install dependencies using npm ci.
-GitHub Actions can generate the production build.
-GitHub Actions can publish the GitHub Pages artifact.
-The deployed application works correctly using the repository
-base-href.
-No functionality belonging to future specifications is implemented.
-OUT OF SCOPE
+## ACCEPTANCE CRITERIA
+
+1. The Angular application starts locally without errors.
+2. npm ci installs dependencies successfully.
+3. package.json and package-lock.json remain synchronized.
+4. The production build completes successfully.
+5. ESLint passes without errors.
+6. Prettier validation passes when configured.
+7. The Angular application contains the following architectural structure:
+    ```
+    core/
+    shared/
+    layout/
+    features/
+    ```
+8. A functional AppShell exists.
+9. A functional SiteHeader exists.
+10. A functional SiteFooter exists.
+11. Functional mobile navigation exists.
+12. A functional / route exists.
+13. The design system uses centralized design tokens.
+14. The application uses the responsive layout defined in instructions.frontend.md.
+15. Navigation is accessible using a keyboard.
+16. Focus states are visible.
+17. Interactive controls have accessible names.
+18. GitHub Actions can install dependencies using npm ci.
+19. GitHub Actions can generate the production build.
+20. GitHub Actions can publish the GitHub Pages artifact.
+21. The deployed application works correctly using the repository base-href.
+22. No functionality belonging to future specifications is implemented.
+
+## OUT OF SCOPE
 
 This specification MUST NOT implement:
 
-Final Home content.
-Complete curriculum vitae.
-Professional experience.
-Projects.
-AI Lab.
-AI chatbot.
-RAG.
-SignalR.
-.NET integration.
-API.
-Database.
-Authentication.
-Functional contact form.
-External service integrations.
-Analytics.
-CMS.
-Administration.
-Generative AI functionality.
+- Final Home content.
+- Complete curriculum vitae.
+- Professional experience.
+- Projects.
+- AI Lab.
+- RAG.
+- SignalR.
+- .NET integration.
+- API.
+- Database.
+- Authentication.
+- Functional contact form.
+- External service integrations.
+- Analytics.
+- CMS.
+- Administration.
+- Generative AI functionality.
 
 These capabilities will be addressed through future specifications.
 
-CONSTRAINTS
+## CONSTRAINTS
 
 DO NOT:
 
-Create speculative abstractions.
-Create components without a current use case.
-Introduce unnecessary dependencies.
-Create architecture more complex than required.
-Implement future features.
-Modify the Constitution.
-Modify copilot-instructions.md to solve a local implementation problem.
-Modify instructions.frontend.md to justify an implementation.
-Introduce secrets into the frontend.
-Disable lint rules without technical justification.
-EXPECTED RESULT
+- Create speculative abstractions.
+- Create components without a current use case.
+- Introduce unnecessary dependencies.
+- Create architecture more complex than required.
+- Implement future features.
+- Modify the Constitution.
+- Modify copilot-instructions.md to solve a local implementation problem.
+- Modify instructions.frontend.md to justify an implementation.
+- Introduce secrets into the frontend.
+- Disable lint rules without technical justification.
+
+## EXPECTED RESULT
 
 At the end of this specification, there must be a small, clean and functional
 Angular frontend that can run locally and deploy automatically to GitHub Pages.
 
 The result should represent:
-
+```
 Angular
    +
 Design System
@@ -557,13 +559,13 @@ Quality Checks
 GitHub Actions
    +
 GitHub Pages
-
+```
 but it must NOT yet implement the portfolio as a finished product.
 
 The next specification must be able to build on this foundation without
 requiring architectural rework.
 
-LANGUAGE
+# LANGUAGE
 
 The specification, plan, tasks, documentation generated by this process,
 and code comments MUST use English.
@@ -571,10 +573,10 @@ and code comments MUST use English.
 Code MUST follow the technical conventions of the relevant language and
 framework.
 
-FINAL RULE
+## FINAL RULE
 
 Priority order:
-
+```
 Constitution
     ↓
 Copilot Instructions
@@ -584,7 +586,7 @@ Frontend Instructions
 Specification
     ↓
 Implementation
-
+```
 When uncertain, choose the simplest solution that satisfies the
 specification and preserves the existing architecture.
 
