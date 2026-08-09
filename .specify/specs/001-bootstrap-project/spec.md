@@ -214,3 +214,31 @@ The resulting foundation MUST be extendable by future specifications without arc
 - Repository root-level `package.json` may exist for workspace tooling, but frontend validation commands are executed from `portfolio_app` when app dependencies are located there.
 - The feature branch naming in this repository currently uses `001-bootstrap-project` as created by the active Speckit git extension hook.
 - Language for the generated artifact and downstream planning artifacts is English.
+
+## Clarifications
+
+### Session 2026-08-09
+
+## Clarification Summary
+
+| # | Topic | Decision | Impact |
+|---|---|---|---|
+| 1 | Feature branch canonical name | Use `feature/001-bootstrap-project` as canonical for implementation workflow artifacts. | Aligns planning and execution workflow with constitutional branch governance. |
+| 2 | Existing Angular project strategy | Bootstrap by modifying only what is necessary in the current `portfolio_app`. | Prevents unnecessary rewrites and preserves compatibility with existing project state. |
+| 3 | Chatbase during bootstrap | Keep Chatbase as allowed future integration; do not add dependency now. | Preserves simplicity-first scope and avoids out-of-scope dependency expansion. |
+| 4 | GitHub Pages base-href strategy | Derive repository path dynamically from GitHub Actions context at build/deploy time. | Avoids hardcoded repository paths and keeps deployments portable across repo context changes. |
+| 5 | Mobile navigation breakpoint | Use `1024px` as the desktop-to-mobile navigation switch breakpoint. | Establishes deterministic responsive behavior for header and mobile navigation implementation. |
+| 6 | Bootstrap route content (`/`) | Show a minimal technical bootstrap screen with project name, status, and short "foundation ready" message. | Provides a visible validation target without implementing future portfolio feature content. |
+
+## Specification Updates
+
+- Clarified canonical branch naming for implementation workflow to `feature/001-bootstrap-project`.
+- Clarified bootstrap approach as minimal, compatibility-preserving changes to existing `portfolio_app`.
+- Clarified Chatbase handling as deferred (allowed but not installed/configured in this bootstrap).
+- Clarified GitHub Pages base-href provisioning as dynamic from GitHub Actions repository context.
+- Clarified responsive navigation breakpoint at `1024px`.
+- Clarified temporary `/` route content as a technical bootstrap validation screen.
+
+## Ready for Plan
+
+The specification is sufficiently clarified for `speckit.plan`.
