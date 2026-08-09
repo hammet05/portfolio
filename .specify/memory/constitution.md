@@ -1,11 +1,24 @@
+<!--
+Sync Impact Report
+- Version change: 1.0.0 -> 1.1.0
+- Principios modificados:
+	- Ninguno
+- Secciones agregadas:
+	- Working Method: block "Interactive Question Mode"
+- Secciones eliminadas:
+	- Ninguna
+- TODOs de seguimiento:
+	- Ninguno
+-->
+
 # Constitución del proyecto
 > Este archivo define las reglas inmutables del proyecto.
 
 - **Project:** Portfolio
 - **Scope:** Frontend
 - **Status:** Active
-- **Version:** 1.0.0
-- **LastUpdate:** 2026-08-08
+- **Version:** 1.1.0
+- **LastUpdate:** 2026-08-09
 
 
 ---
@@ -51,7 +64,7 @@ A solution MUST NOT be considered better merely because it is more complex.
 
 # Principle II — Feature-Oriented Organization
 
-Application functionality MUST be organized primarily by feature.
+Application functionality MUST be organized primarily by feature.(Vertical Slice)
 
 The `features/` directory is the primary location for application-specific
 functionality.
@@ -282,6 +295,84 @@ committed.
   - Final implementation decisions.
 
 AI assistance MUST NOT be considered a substitute for technical review.
+
+# Working method
+
+Every initiate MUST contain exactly three files:
+
+- `spec.md` — objective, scope, acceptance criteria, and dependencies.
+- `plan.md` — technical decisions, affected modules and implementation order
+- `tasks.md` — secuence of steps that are actionable, verifiable and markable as completed.
+  
+The minimum mandatory workflow is: `speckit.specify` → `speckit.plan` → `speckit.tasks` → `speckit.implement`. 
+
+For foundational or high-impact specs, it is recommended to add `speckit.clarify` (between specify and plan) and `speckit.analyze` (between plan and tasks). 
+No mandatory phase may be skipped.
+
+Each completed task MUST be marked as `[X]` in `tasks.md`.
+
+### Interactive Question Mode
+
+The `speckit.specify` and `speckit.clarify` commands operate in **mandatory interactive mode**: they present questions one by one and wait for a response before proceeding.
+The `speckit.plan` command operates in **conditional interactive mode**: it only asks questions if there are unresolved structural decisions affecting all future specs that are not already settled in the constitution or the current spec.
+
+When a command operates in interactive mode, it MUST follow this protocol without exception:
+
+**Question format with options:**
+
+```
+Question [N of TOTAL] — [short topic]
+─────────────────────────────────────
+[Clear statement of the question]
+
+Why it matters: [1 line on the impact of a poor decision]
+
+A) [concrete option with specific value]
+B) [concrete option with specific value]  ← Recommended
+C) [concrete option with specific value]
+D) Other — write your answer
+
+> Respond with the letter (A, B, C, or D) or write your own answer.
+```
+**Yes/No question format:**
+
+```
+Question [N of TOTAL] — [short topic]
+─────────────────────────────────────
+[Question statement]
+
+Why it matters: [1 line]
+
+Y) Yes ← Recommended
+N) No
+
+> Answer Y or N.
+```
+
+**Option rules:**
+
+- Each option (A, B, C) MUST be concrete and actionable, never generic.
+  Correct example: `1024px (tablet landscape)`.
+  Prohibited example: `A standard breakpoint`.
+- Options MUST be mutually exclusive: each leads to a
+  different code outcome.
+- The option marked with `← Recommended` MUST be the one most adopted by
+  teams using this stack (FastAPI + SQLAlchemy async + Supabase +
+  Python 3.13) or the one that best adheres to the principles of this constitution.
+- The option `D) Other` MUST always be present as an escape hatch for
+  custom answers.
+
+**Response rules:**
+
+- If the user answers with a letter (A, B, C, Y, or N): confirm the
+  choice in a single line stating the specific value selected and proceed
+  immediately to the next question.
+- If the user answers with free text or chooses D): accept the answer,
+  confirm it in a single line, and proceed to the next question.
+- Upon completing all questions: display a summary of the decisions
+  made and generate the corresponding artifact (`spec.md`, the
+  "Clarifications" section in `spec.md`, or `plan.md`).
+
 
 # Principle XIII — Progressive Architecture
 

@@ -35,10 +35,12 @@ The frontend MUST use:
 - Tailwind CSS.
 - ESLint.
 - Prettier.
+- Chatbase as primarily chatbot ([html](https://www.chatbase.co/))
 
 The frontend MUST NOT introduce additional UI frameworks without explicit
 technical justification.
 
+Using this page as  visual reference: ** https://glowing-transportation-008714.framer.app/
 ---
 
 # 3. Design Philosophy
@@ -186,10 +188,6 @@ The initial visual identity SHOULD use a neutral technical palette with a
 single primary accent.
 
 Recommended initial tokens:
-8. Color System
-
-The initial visual identity SHOULD use a neutral technical palette with a
-single primary accent.
 ```scss
 :root {
   --color-bg: #0b0f14;
