@@ -329,16 +329,24 @@ environment or deployment mechanism instead.
 
 # 14. Git and Branching
 
+For every specification:
+
+1. Identify the specification ID.
+2. Create or work on the corresponding feature branch.
+3. Use the naming convention:
+
+   `feature/<spec-id>-<short-name>`
+
+Example:
+
+- `feature/001-bootstrap-project`
+- `feature/002-home`
+- `feature/003-about`
+- `feature/004-projects`
+
+Never implement a feature directly on `main`.
+
 The `main` branch represents the stable and deployable application.
-
-New functionality should be developed in feature branches such as:
-
-```text
-feature/home
-feature/projects
-feature/ai-playground
-feature/contact
-```
 
 Changes should be integrated through Pull Requests.
 

@@ -198,17 +198,19 @@ the application.
 
 New functionality MUST be developed in feature branches.
 
+Branch names MUST follow:
+
+`feature/<spec-id>-<short-name>`
 Example:
 
-``` text
-main
- ├── feature/home
- ├── feature/projects
- ├── feature/ai-playground
- └── feature/contact
-```
+- `feature/001-bootstrap-project`
+- `feature/002-home`
+- `feature/003-about`
+- `feature/004-projects`
 
-Changes SHOULD be integrated into main through Pull Requests.
+The `main` branch MUST remain stable and deployable.
+
+Completed feature branches MUST be integrated through Pull Requests.
 
 Commit messages MUST clearly describe the purpose of the change.
 
