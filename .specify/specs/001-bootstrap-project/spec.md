@@ -1,12 +1,13 @@
 # Feature Specification: Bootstrap Project Foundation
 
-**Feature Branch**: `001-bootstrap-project`
+**Feature Branch**: `feature/001-bootstrap-project`
+
 
 **Created**: 2026-08-09
 
 **Status**: Draft
 
-**Input**: User description: "Create spec 001-bootstrap-project. Establish the technical and visual foundation of the Portfolio frontend, ready to receive first real product features later."
+**Input**: User description: "Create spec `001-bootstrap-project`. Establish the technical and visual foundation of the Portfolio frontend, ready to receive first real product features later."
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -70,7 +71,7 @@ As a maintainer, I can deploy the bootstrap app through GitHub Actions to GitHub
 
 ### Functional Requirements
 
-- **FR-001**: The repository MUST include a bootstrap specification artifact for feature `001-bootstrap-project` under the standard `specs/` location.
+- **FR-001**: The repository MUST include a bootstrap specification artifact for feature `001-bootstrap-project` under `.specify/specs/001-bootstrap-project/`.
 - **FR-002**: The frontend foundation MUST provide only minimal infrastructure for local run, quality validation, production build, and initial GitHub Pages deployment.
 - **FR-003**: The bootstrap scope MUST exclude final portfolio feature content and remain limited to foundation responsibilities.
 
@@ -109,7 +110,7 @@ As a maintainer, I can deploy the bootstrap app through GitHub Actions to GitHub
 
 - **FR-023**: Quality controls MUST include ESLint, Prettier, and TypeScript strictness aligned to project configuration, with validation scripts for build and configured quality checks.
 - **FR-024**: Naming conventions MUST follow kebab-case files, PascalCase classes, camelCase variables, and kebab-case CSS custom properties.
-- **FR-025**: Dependency discipline MUST keep external dependencies minimal; only Chatbase is allowed as the external integration candidate during this bootstrap.
+- **FR-025**: Dependency discipline MUST keep external dependencies minimal; 
 - **FR-026**: Out-of-scope dependency categories MUST not be introduced in this bootstrap, including state-management libraries, additional UI frameworks, form libraries, charting libraries, OpenAI SDKs, additional HTTP clients, and unnecessary animation libraries.
 - **FR-027**: GitHub Actions deployment workflow MUST be defined in `.github/workflows/deploy.yml` and MUST checkout the repository, configure Node.js, run `npm ci` in the correct directory, run production build, upload pages artifact, and deploy to GitHub Pages.
 - **FR-028**: Package lock discipline MUST be enforced: `package.json` and `package-lock.json` remain synchronized and committed, with CI/CD using `npm ci`.
@@ -140,6 +141,13 @@ As a maintainer, I can deploy the bootstrap app through GitHub Actions to GitHub
 - **AC-20**: GitHub Actions can publish the GitHub Pages artifact.
 - **AC-21**: The deployed application works correctly using the repository base-href.
 - **AC-22**: No functionality belonging to future specifications is implemented.
+
+### Responsive Validation Criteria (for AC-14)
+
+- **RVC-01**: At `375px` viewport width, the global shell renders without horizontal scrolling and mobile navigation controls are reachable by keyboard.
+- **RVC-02**: At `768px` viewport width, tablet horizontal spacing is applied and header/navigation do not overlap.
+- **RVC-03**: At `1024px` viewport width, navigation behavior switches consistently between mobile and desktop patterns.
+- **RVC-04**: At `1280px` viewport width, content remains centered within the defined container max-width and without horizontal overflow.
 
 ### Out of Scope
 
@@ -209,10 +217,11 @@ The resulting foundation MUST be extendable by future specifications without arc
 
 ## Assumptions
 
-- The governing constitution file is available as `.specify/memory/constitution.md` and treated as the active constitution source because `.specify/constitution.md` is not present.
+- The governing constitution file is available as `.specify/memory/constitution.md`.
 - Frontend-specific instruction source is `.github/instructions/frontend.instructions.md` because `.specify/instructions.frontend.md` is not present.
+- Compatibility references are provided at `.specify/constitution.md` and `.specify/instructions.frontend.md` for tools that expect those canonical paths.
 - Repository root-level `package.json` may exist for workspace tooling, but frontend validation commands are executed from `portfolio_app` when app dependencies are located there.
-- The feature branch naming in this repository currently uses `001-bootstrap-project` as created by the active Speckit git extension hook.
+- The feature branch naming in this repository currently uses `feature/001-bootstrap-project` as created by the active Speckit git extension hook.
 - Language for the generated artifact and downstream planning artifacts is English.
 
 ## Clarifications

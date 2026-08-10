@@ -18,6 +18,10 @@ Before generating or modifying code, consider:
 3. The specification for the requested feature.
 4. These instructions.
 
+<!-- SPECKIT START -->
+Active plan reference: `.specify/specs/001-bootstrap-project/plan.md`
+<!-- SPECKIT END -->
+
 ---
 
 # 2. Core Development Principles

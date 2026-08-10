@@ -35,7 +35,7 @@ The frontend MUST use:
 - Tailwind CSS.
 - ESLint.
 - Prettier.
-- Chatbase as primarily chatbot ([html](https://www.chatbase.co/))
+
 
 The frontend MUST NOT introduce additional UI frameworks without explicit
 technical justification.
@@ -783,6 +783,7 @@ AI coding assistant
 Semantic search
 Recommendation system
 AI agents
+Chatbase as primarily chatbot ([html](https://www.chatbase.co/))
 SignalR + AI real-time application
 ```
 Each experiment SHOULD clearly identify:
