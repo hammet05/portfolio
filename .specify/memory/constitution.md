@@ -479,6 +479,6 @@ be reviewed before implementation proceeds.
 
 # Version
 
-> Constitution Version: 1.0.0
+> Constitution Version: 1.1.0
 > 
 > Status: Active
