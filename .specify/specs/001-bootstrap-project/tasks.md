@@ -65,53 +65,53 @@ For numbering consistency with the requested format, plan phases are mapped as:
 
 ### Workstream 1 - Angular 19 Stack and Tooling Baseline
 
-- [ ] T3.1 Upgrade Angular workspace to Angular 19.
+- [X] T3.1 Upgrade Angular workspace to Angular 19.
   - Action: Update Angular packages and related toolchain in `portfolio_app/package.json` and lockfile.
   - Verification: `npm ci` and `npm run build` succeed in `portfolio_app` with Angular 19.
 
-- [ ] T3.2 Configure ESLint and Prettier baseline.
+- [X] T3.2 Configure ESLint and Prettier baseline.
   - Action: Add ESLint and Prettier configs and scripts (`lint`, `format`, `format:check`) in `portfolio_app`.
   - Verification: `npm run lint` and `npm run format:check` execute successfully.
 
-- [ ] T3.3 Configure Tailwind CSS foundation.
+- [X] T3.3 Configure Tailwind CSS foundation.
   - Action: Install and wire Tailwind in Angular styles pipeline.
   - Verification: Tailwind utility classes compile in production build output.
 
-- [ ] T3.4 Add Lucide icon library and usage conventions.
+- [X] T3.4 Add Lucide icon library and usage conventions.
   - Action: Install Lucide Angular and implement baseline usage in shell/shared components.
   - Verification: Icons render correctly; decorative icons can be hidden from assistive tech.
 
 ### Workstream 2 - App Shell and Route Foundation
 
-- [ ] T3.5 Create app folder boundaries under `src/app/`.
+- [X] T3.5 Create app folder boundaries under `src/app/`.
   - Action: Establish `core/`, `shared/`, `layout/`, and `features/` structure with minimal bootstrap scope.
   - Verification: Project tree contains required boundaries and no future feature pages are implemented.
 
-- [ ] T3.6 Implement layout shell components.
+- [X] T3.6 Implement layout shell components.
   - Action: Implement `app-shell`, `site-header`, `mobile-navigation`, and `site-footer` with standalone components.
   - Verification: `/` renders header, main (`router-outlet`), and footer in the expected shell hierarchy.
 
-- [ ] T3.7 Implement bootstrap route scope.
+- [X] T3.7 Implement bootstrap route scope.
   - Action: Configure routing with only functional `/` route pointing to bootstrap placeholder content.
   - Verification: Route table exposes `/` only for bootstrap and excludes final feature routes.
 
 ### Workstream 3 - Design Tokens and Shared UI
 
-- [ ] T3.8 Implement style token files under `src/styles/`.
+- [X] T3.8 Implement style token files under `src/styles/`.
   - Action: Create `_tokens.scss`, `_typography.scss`, `_layout.scss`, `_utilities.scss`, and compose from `styles.scss`.
   - Verification: Build succeeds and shell components consume semantic tokens.
 
-- [ ] T3.9 Implement shared UI scope components.
+- [X] T3.9 Implement shared UI scope components.
   - Action: Implement only `button`, `icon-button`, and `section-header` as shared UI baseline.
   - Verification: No additional shared UI primitives are introduced in this spec.
 
 ### Workstream 4 - Accessibility and Responsive Behavior
 
-- [ ] T3.10 Implement keyboard and focus accessibility baseline.
+- [X] T3.10 Implement keyboard and focus accessibility baseline.
   - Action: Ensure interactive controls are keyboard reachable with visible focus and accessible names.
   - Verification: Keyboard-only walkthrough passes for header nav and mobile menu controls.
 
-- [ ] T3.11 Implement responsive navigation switch behavior.
+- [X] T3.11 Implement responsive navigation switch behavior.
   - Action: Apply mobile/desktop behavior switch at `1024px` and stable menu state transitions.
   - Verification: RVC-01..RVC-04 pass at 375px, 768px, 1024px, and 1280px without horizontal overflow.
 
@@ -131,7 +131,7 @@ For numbering consistency with the requested format, plan phases are mapped as:
 
 ### Workstream 6 - Final Validation and Acceptance
 
-- [ ] T3.15 Execute local validation suite from `portfolio_app`.
+- [X] T3.15 Execute local validation suite from `portfolio_app`.
   - Action: Run `npm ci`, `npm run build`, `npm run lint`, and `npm run format:check` (when configured).
   - Verification: All commands pass without rule suppression.
 
@@ -139,6 +139,6 @@ For numbering consistency with the requested format, plan phases are mapped as:
   - Action: Validate implementation against AC-01..AC-22 and confirm no out-of-scope feature delivery.
   - Verification: Every AC is marked as satisfied with objective evidence.
 
-- [ ] T3.17 Confirm lockfile and dependency discipline.
+- [X] T3.17 Confirm lockfile and dependency discipline.
   - Action: Ensure `package.json` and `package-lock.json` are synchronized and committed for `portfolio_app`.
   - Verification: CI installs dependencies with `npm ci` without drift.
