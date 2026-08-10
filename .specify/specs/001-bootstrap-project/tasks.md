@@ -24,17 +24,42 @@ For numbering consistency with the requested format, plan phases are mapped as:
 
 ## Phase 2 - Design and Contract Lock (from Plan Phase 1)
 
-- [ ] T2.1 Validate artifact completeness for design outputs.
+- [X] T2.1 Validate artifact completeness for design outputs.
   - Action: Confirm presence and relevance of `data-model.md`, `quickstart.md`, and all files under `contracts/`.
   - Verification: All referenced Phase 1 artifacts exist and align with FR-007..FR-030 scope.
 
-- [ ] T2.2 Add acceptance-to-artifact traceability notes.
+- [X] T2.2 Add acceptance-to-artifact traceability notes.
   - Action: Add or update concise mapping in `plan.md` or `tasks.md` linking AC-01..AC-22 to implementation workstreams.
   - Verification: Each acceptance criterion has at least one explicit implementation or validation task reference.
 
-- [ ] T2.3 Confirm branch and plan reference integrity.
+- [X] T2.3 Confirm branch and plan reference integrity.
   - Action: Ensure branch naming is consistent with constitution and the active plan pointer in `.github/copilot-instructions.md` is correct.
   - Verification: Branch naming follows `feature/<spec-id>-<short-name>` and active plan path resolves correctly.
+
+### Acceptance Criteria Traceability (T2.2)
+
+- AC-01 -> T3.15
+- AC-02 -> T3.15
+- AC-03 -> T3.17
+- AC-04 -> T3.15
+- AC-05 -> T3.2, T3.15
+- AC-06 -> T3.2, T3.15
+- AC-07 -> T3.5
+- AC-08 -> T3.6
+- AC-09 -> T3.6
+- AC-10 -> T3.6
+- AC-11 -> T3.6, T3.11
+- AC-12 -> T3.7
+- AC-13 -> T3.8
+- AC-14 -> T3.11
+- AC-15 -> T3.10
+- AC-16 -> T3.10
+- AC-17 -> T3.10
+- AC-18 -> T3.12
+- AC-19 -> T3.12
+- AC-20 -> T3.12
+- AC-21 -> T3.14
+- AC-22 -> T3.5, T3.7, T3.16
 
 ## Phase 3 - Implementation Workstreams (from Plan Phase 2)
 
