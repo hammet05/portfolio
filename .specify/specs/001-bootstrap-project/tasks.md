@@ -117,15 +117,15 @@ For numbering consistency with the requested format, plan phases are mapped as:
 
 ### Workstream 5 - GitHub Actions and Pages Deployment
 
-- [ ] T3.12 Implement `.github/workflows/deploy.yml` as single Pages workflow.
+- [X] T3.12 Implement `.github/workflows/deploy.yml` as single Pages workflow.
   - Action: Create/update `deploy.yml` with checkout, setup-node, `npm ci`, production build, artifact upload, and deploy steps.
   - Verification: Workflow run publishes pages artifact successfully.
 
-- [ ] T3.13 Remove legacy Pages workflow duplication.
+- [X] T3.13 Remove legacy Pages workflow duplication.
   - Action: Remove `angular-ci.yml` in the same PR that finalizes `deploy.yml`.
   - Verification: Exactly one active pages deployment workflow remains in `.github/workflows/`.
 
-- [ ] T3.14 Implement dynamic repository-aware base-href in CI build.
+- [X] T3.14 Implement dynamic repository-aware base-href in CI build.
   - Action: Derive and pass base-href from GitHub Actions repository context during production build.
   - Verification: Deployed site resolves correctly at `https://<user>.github.io/<repository>/`.
 
@@ -135,7 +135,7 @@ For numbering consistency with the requested format, plan phases are mapped as:
   - Action: Run `npm ci`, `npm run build`, `npm run lint`, and `npm run format:check` (when configured).
   - Verification: All commands pass without rule suppression.
 
-- [ ] T3.16 Run acceptance criteria closure review.
+- [X] T3.16 Run acceptance criteria closure review.
   - Action: Validate implementation against AC-01..AC-22 and confirm no out-of-scope feature delivery.
   - Verification: Every AC is marked as satisfied with objective evidence.
 
