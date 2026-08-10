@@ -110,7 +110,7 @@ As a maintainer, I can deploy the bootstrap app through GitHub Actions to GitHub
 
 - **FR-023**: Quality controls MUST include ESLint, Prettier, and TypeScript strictness aligned to project configuration, with validation scripts for build and configured quality checks.
 - **FR-024**: Naming conventions MUST follow kebab-case files, PascalCase classes, camelCase variables, and kebab-case CSS custom properties.
-- **FR-025**: Dependency discipline MUST keep external dependencies minimal; 
+- **FR-025**: Dependency discipline MUST keep external dependencies minimal; Chatbase is allowed as a future integration candidate but MUST NOT be installed or configured during this bootstrap unless explicitly required by a new approved specification.
 - **FR-026**: Out-of-scope dependency categories MUST not be introduced in this bootstrap, including state-management libraries, additional UI frameworks, form libraries, charting libraries, OpenAI SDKs, additional HTTP clients, and unnecessary animation libraries.
 - **FR-027**: GitHub Actions deployment workflow MUST be defined in `.github/workflows/deploy.yml` and MUST checkout the repository, configure Node.js, run `npm ci` in the correct directory, run production build, upload pages artifact, and deploy to GitHub Pages.
 - **FR-028**: Package lock discipline MUST be enforced: `package.json` and `package-lock.json` remain synchronized and committed, with CI/CD using `npm ci`.
@@ -218,8 +218,8 @@ The resulting foundation MUST be extendable by future specifications without arc
 ## Assumptions
 
 - The governing constitution file is available as `.specify/memory/constitution.md`.
-- Frontend-specific instruction source is `.github/instructions/frontend.instructions.md` because `.specify/instructions.frontend.md` is not present.
-- Compatibility references are provided at `.specify/constitution.md` and `.specify/instructions.frontend.md` for tools that expect those canonical paths.
+- Frontend-specific instruction source is `.github/instructions/frontend.instructions.md` as the authoritative frontend guidance.
+- Compatibility references are also provided at `.specify/constitution.md` and `.specify/instructions.frontend.md` for tools that expect those canonical paths.
 - Repository root-level `package.json` may exist for workspace tooling, but frontend validation commands are executed from `portfolio_app` when app dependencies are located there.
 - The feature branch naming in this repository currently uses `feature/001-bootstrap-project` as created by the active Speckit git extension hook.
 - Language for the generated artifact and downstream planning artifacts is English.
@@ -247,6 +247,7 @@ The resulting foundation MUST be extendable by future specifications without arc
 - Clarified GitHub Pages base-href provisioning as dynamic from GitHub Actions repository context.
 - Clarified responsive navigation breakpoint at `1024px`.
 - Clarified temporary `/` route content as a technical bootstrap validation screen.
+- Validated research-to-plan consistency: Angular 19 target, dynamic base-href strategy, minimal ESLint/Prettier baseline, and Tailwind/Lucide foundation remain aligned across `research.md`, `plan.md`, and this specification.
 
 ## Ready for Plan
 

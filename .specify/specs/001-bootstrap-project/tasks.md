@@ -10,15 +10,15 @@ For numbering consistency with the requested format, plan phases are mapped as:
 
 ## Phase 1 - Research Validation (from Plan Phase 0)
 
-- [ ] T1.1 Validate research decisions against current plan and spec.
+- [X] T1.1 Validate research decisions against current plan and spec.
   - Action: Cross-check `research.md` decisions with `plan.md` summary and technical context.
   - Verification: No conflicting decision statements remain across `research.md`, `spec.md`, and `plan.md`.
 
-- [ ] T1.2 Resolve dependency governance wording in FR-025.
+- [X] T1.2 Resolve dependency governance wording in FR-025.
   - Action: Complete FR-025 sentence in `spec.md` with explicit dependency policy wording.
   - Verification: FR-025 is complete and testable as written (no trailing/unfinished text).
 
-- [ ] T1.3 Resolve assumptions path contradiction in `spec.md`.
+- [X] T1.3 Resolve assumptions path contradiction in `spec.md`.
   - Action: Update assumptions so compatibility paths and authoritative sources are unambiguous.
   - Verification: Assumptions no longer state both "not present" and "provided" for the same path.
 
