@@ -58,13 +58,18 @@ generic + abstract + speculative
 
 # 3. Specification Before Implementation
 
-Before implementing a significant feature:
+Before implementing a significant feature o execute any command `speckit.*`
 
 1. Check whether a specification exists.
-2. Read its purpose and requirements.
-3. Respect its acceptance criteria.
-4. Respect its technical constraints.
-5. Implement only what the specification requires.
+2. The agent MUST check `specify/extensions.yml` and execute all the hooks  `before_<command>` with `optional:false`.
+3. Read its purpose and requirements.
+4. Respect its acceptance criteria.
+5. Respect its technical constraints.
+6. Implement only what the specification requires.
+
+Critical Case: `before_specify` require execute `speckit.git.feature` BEFORE create spec directory or `spec.md`. This hook create the branch of the feature and update `.specify/feature.json`
+
+FORBIDDEN create any file under `.specify/specs/<new_spec>/` not before execute the mandatory hook previously.
 
 If the requested implementation conflicts with the specification:
 
