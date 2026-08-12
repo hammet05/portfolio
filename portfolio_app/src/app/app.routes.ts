@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeBootstrapComponent } from './features/home-bootstrap/home-bootstrap.component';
+import { HomePageComponent } from './features/home/home-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeBootstrapComponent
+    component: HomePageComponent
   }
 ];
