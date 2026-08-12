@@ -300,12 +300,18 @@ AI assistance MUST NOT be considered a substitute for technical review.
 
 # Working method
 
-Every initiate MUST contain exactly three files:
+Every initiate MUST contain exactly three mandatory files:
 
 - `spec.md` — objective, scope, acceptance criteria, and dependencies.
 - `plan.md` — technical decisions, affected modules and implementation order
 - `tasks.md` — secuence of steps that are actionable, verifiable and markable as completed.
-  
+
+Could be others as optionals files:
+- research.md
+- data-model.md
+- quickstart.md
+- contracts
+
 The minimum mandatory workflow is: `speckit.specify` → `speckit.plan` → `speckit.tasks` → `speckit.implement`. 
 
 For foundational or high-impact specs, it is recommended to add `speckit.clarify` (between specify and plan) and `speckit.analyze` (between plan and tasks). 
