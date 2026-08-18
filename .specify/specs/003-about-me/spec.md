@@ -14,7 +14,208 @@ Create a dedicated About Me page for the portfolio that communicates a concise p
 
 The page must establish the developer's experience and direction without duplicating a CV and must complement the rest of the portfolio with a focused, polished narrative experience.
 
-## 2. User Scenarios & Testing
+A developer MUST NOT replace the approved visual language with a generic
+dashboard, Material Design, Bootstrap, Tailwind UI, or template-based
+interpretation.
+
+The implementation should feel like the same design system shown in the
+approved mockup.
+
+## 2. Approved Visual Reference
+
+The approved visual reference for this feature is:
+
+`mockups/about-me-approved.png`
+
+This image is the primary visual reference for the implementation of the
+About Me feature.
+
+The implementation MUST reproduce the visual language, hierarchy,
+composition, spacing relationships, proportions, color relationships,
+typography hierarchy, borders, cards, icon treatment, architectural
+elements, gradients, and overall visual density represented in the approved
+mockup.
+
+The mockup MUST be treated as a design reference, not as an image to be
+embedded or reproduced as a single bitmap.
+
+The implementation MUST recreate the visual design using Angular templates,
+HTML, SCSS/CSS, CSS custom properties, SVG and existing project capabilities.
+
+The implementation MUST NOT introduce a new frontend library solely to
+reproduce the mockup.
+
+### Visual fidelity priorities
+
+When implementing the mockup, the following priorities MUST be preserved:
+
+1. Overall composition and section hierarchy.
+2. Dark visual environment and contrast relationships.
+3. Typography scale and hierarchy.
+4. Spacing and negative space.
+5. Card dimensions, borders and surface treatment.
+6. Blue-to-purple accent system.
+7. Architectural lines and connection elements.
+8. Icon size, stroke treatment and positioning.
+9. Controlled gradients and luminous accents.
+10. Microanimations and subtle visual feedback.
+
+### Source of truth hierarchy
+
+When requirements appear to conflict, use the following priority:
+
+1. `constitution.md`
+2. `instructions.frontend.md`
+3. This feature specification
+4. `mockups/about-me-approved.png`
+
+The mockup MUST NOT override accessibility, maintainability, responsive
+behavior, technical constraints, or architectural rules defined by the
+project documentation.
+
+### Responsive interpretation
+
+The approved mockup represents the primary desktop visual composition.
+
+The implementation MUST preserve its visual language on smaller screens
+while adapting layout, spacing, typography and component arrangement to
+avoid horizontal scrolling and maintain usability.
+
+The mobile layout MUST NOT be treated as a pixel-for-pixel reproduction
+of the desktop mockup.
+## Visual Design Tokens
+
+The About Me feature MUST use the project's global design token system.
+
+The following feature-level visual values represent the approved mockup and
+MUST be implemented through CSS custom properties rather than hardcoded
+values throughout individual components.
+
+The final implementation MUST reconcile these values with the global design
+tokens defined by the frontend instructions.
+
+### Neural Face Visualization
+Recreate the visual treatment shown in the approved mockup
+
+The About Me hero MUST reproduce the neural-network face visualization
+shown in the approved visual mockup:
+
+`mockups/about-me-approved.png`
+
+The visualization consists of a human side-profile silhouette constructed
+from interconnected points and thin geometric lines.
+
+The visual MUST preserve the appearance and proportions represented in the
+approved mockup.
+
+Create specific tokens to visualize this graph
+
+### Neural network density
+
+Node and connection density MUST be concentrated around the facial profile.
+
+The surrounding area MUST progressively reduce in density and opacity.
+
+The visualization MUST avoid uniform distribution of nodes, as this would
+change the visual character of the approved mockup.
+
+### Implementation
+
+The visualization SHOULD be implemented using SVG rather than CSS-only
+drawing.
+
+SVG MUST be used for:
+
+- The human profile geometry.
+- Neural nodes.
+- Connections between nodes.
+- Small luminous points.
+- Geometric network structure.
+- Gradient strokes where required.
+
+CSS MAY be used to provide:
+
+- Glow effects.
+- Opacity transitions.
+- Subtle node pulsing.
+- Very subtle line animation.
+- Hover or visibility transitions.
+- Responsive sizing.
+
+The visualization MUST NOT be implemented as a raster image.
+
+The implementation MUST NOT introduce a new JavaScript visualization,
+canvas, animation, graphics, or UI library.
+
+### Visual characteristics
+
+The neural face MUST preserve the following characteristics from the
+approved mockup:
+
+- Right-facing human profile.
+- Dark background.
+- Thin blue geometric connections.
+- Small blue and white luminous nodes.
+- Higher node density around the face.
+- Lower density toward the surrounding area.
+- Subtle fading of peripheral connections.
+- Predominantly blue illumination.
+- Very controlled blue-to-purple accents.
+- Fine line weight.
+- Large amount of transparent/negative space.
+- Subtle atmospheric glow.
+- No solid filled human silhouette.
+
+The visualization MUST remain secondary to the hero typography.
+
+### Animation
+
+The visualization SHOULD include subtle motion.
+
+Animation MUST remain slow and restrained and MUST NOT behave like a
+high-energy particle animation.
+
+Possible animations include:
+
+- Individual nodes slowly pulsing.
+- Very subtle opacity variations.
+- Occasional light propagation along selected connections.
+- Extremely subtle movement of peripheral particles.
+
+Animations MUST respect:
+
+`prefers-reduced-motion: reduce`
+
+When reduced motion is enabled, all non-essential animation MUST be
+disabled or reduced to a static representation.
+
+### Responsive behavior
+
+The SVG MUST scale proportionally with its container.
+
+The face MUST remain visually recognizable at desktop and tablet sizes.
+
+On small screens, the visualization MAY be reduced in size or repositioned
+to preserve the readability of the hero content.
+
+The visualization MUST NOT cause horizontal scrolling.
+
+
+
+### AI Chapter visual treatment
+
+The AI Chapter MAY use a subtle abstract technological field or wave
+implemented with CSS/SVG.
+
+It MUST NOT use the previously rejected large neural-network/head
+illustration.
+
+The visual MUST remain subordinate to the typography and content.
+
+It MUST use the approved blue-to-purple accent palette and MUST NOT
+introduce additional colors.
+
+## 3. User Scenarios & Testing
 
 ### User Story 1 - Understand the professional profile (Priority: P1)
 
@@ -72,7 +273,7 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - How should the page behave when the section labels and visual hierarchy are reviewed by keyboard and screen-reader users?
 - What happens when the content is intentionally kept concise so it does not become a replacement for the CV?
 
-## 3. Requirements
+## 4. Requirements
 
 ### Functional Requirements
 
@@ -166,14 +367,14 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - **FR-059**: The implementation MUST use a single monolithic `about-page.component` containing all six sections. No sub-components or feature-internal extraction is required unless a specific section demonstrates independent behavior, reusability, or complexity that justifies separation.
 - **FR-060**: The feature MUST maintain compatibility with the deployed GitHub Pages base path and not assume that `/about` is hosted at domain root.
 
-## 4. Key Entities
+## 5. Key Entities
 
 - **AboutPageNarrative**: Represents the page-level story arc from software engineering to AI exploration, including the primary professional identity and thesis.
 - **EngineeringJourneyStage**: Represents one stage in the progression from building applications to exploring intelligence, including title and descriptive focus.
 - **ProjectGrowthStory**: Represents the healthcare-sector project narrative and its organizational expansion over time.
 - **SectionDefinition**: Represents each page section label and order for the About page narrative.
 
-## 5. Success Criteria
+## 6. Success Criteria
 
 ### Measurable Outcomes
 
@@ -189,17 +390,16 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - **SC-010**: The page is keyboard accessible, type-safe, and compliant with reduced-motion preferences.
 - **SC-011**: The implementation does not introduce new frontend dependencies.
 
-## 6. Assumptions
+## 7. Assumptions
 
 - The project’s existing application shell and global design system remain the source of truth for route-level layout and styling.
 - The approved mockup is treated as a visual reference only and is not a requirement for a separate specification asset in runtime code.
 - The page is a static digital narrative and does not require backend APIs, data services, or AI integrations.
 - The feature will remain simple and maintainable and will not create additional abstractions beyond what is required by the specification.
 
-## 7. Out of Scope
+## 8. Out of Scope
 
 - Full CV implementation.
-- Detailed career timeline page.
 - Projects feature.
 - AI Lab feature.
 - Functional AI integrations.
@@ -213,7 +413,7 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - New frontend dependencies.
 - Large vector or neural-network artwork in the AI Chapter.
 
-## 8. Acceptance Criteria
+## 9. Acceptance Criteria
 
 - **AC-001**: The About page is available at `/about` and is reachable through the existing global navigation.
 - **AC-002**: The page is implemented as one continuous vertical scrolling experience without mandatory scroll snapping.
@@ -233,7 +433,7 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - **AC-016**: Implementation passes the project's configured ESLint and production build validation.
 - **AC-017**: The `/about` route works correctly under the GitHub Pages repository base path.
 
-## 9. Clarifications
+## 10. Clarifications
 
 The following decisions are part of the approved feature direction and must be preserved unless changed through the project's clarification workflow.
 

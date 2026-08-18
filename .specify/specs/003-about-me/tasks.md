@@ -23,6 +23,7 @@
 - [X] T004 Create static TypeScript interfaces and readonly content model in portfolio_app/src/app/features/about/about-page.component.ts
 - [X] T005 [P] Add the narrative content definitions for all six sections in portfolio_app/src/app/features/about/about-page.component.ts
 - [X] T006 [P] Add Intersection Observer setup and reduced-motion handling in portfolio_app/src/app/features/about/about-page.component.ts
+- [X] T006a [P] Implement the neural face SVG visualization in the About Me section with animations (nodes, connections, luminous accents) in portfolio_app/src/app/features/about/about-page.component.html and about-page.component.scss
 
 **Checkpoint**: Foundation ready - story implementation can begin in parallel.
 

@@ -8,7 +8,7 @@
 
 ## Summary
 
-Create a dedicated About Me page for the portfolio that communicates the developer's professional narrative from software engineering to AI exploration. The page uses six ordered sections, semantic HTML, responsive layout, and subtle Intersection Observer-driven CSS animations. Static content only; no backend integrations. Single monolithic component under `features/about/`. Must fit within 300-400 words (all visible text).
+Create a dedicated About Me page for the portfolio that communicates the developer's professional narrative from software engineering to AI exploration. The page uses six ordered sections, semantic HTML, responsive layout, and subtle Intersection Observer-driven CSS animations. Features a neural network visualization (SVG) in the hero section showing an abstract right-facing human profile with interconnected nodes and connections. Static content only; no backend integrations. Single monolithic component under `features/about/`. Must fit within 300-400 words (all visible text).
 
 ## Technical Context
 
