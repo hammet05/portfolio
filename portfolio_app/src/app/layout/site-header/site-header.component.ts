@@ -27,7 +27,7 @@ interface NavLink {
 export class SiteHeaderComponent {
   protected readonly links: NavLink[] = [
     { label: 'Home', path: '/', implemented: true },
-    { label: 'About', path: '/about', implemented: false },
+    { label: 'About', path: '/about', implemented: true },
     { label: 'Experience', path: '/experience', implemented: false },
     { label: 'Projects', path: '/projects', implemented: false },
     { label: 'AI Lab', path: '/ai-lab', implemented: false },

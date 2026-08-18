@@ -1,0 +1,80 @@
+<section class="about-page" aria-label="About me page">
+  <section class="about-section about-intro" data-animate>
+    <p class="eyebrow">01 / ABOUT ME</p>
+    <h1>From building software to exploring intelligence.</h1>
+
+    <div class="descriptor-list" aria-label="Professional descriptors">
+      @for (descriptor of descriptors; track descriptor) {
+        <span class="descriptor">{{ descriptor }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="about-section engineering-journey" data-animate>
+    <p class="eyebrow">02 / ENGINEERING JOURNEY</p>
+    <div class="journey-grid">
+      @for (stage of stages; track stage.id) {
+        <article class="journey-item" data-animate>
+          <h2>{{ stage.title }}</h2>
+          <p>{{ stage.summary }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="about-section what-i-build" data-animate>
+    <p class="eyebrow">03 / WHAT I BUILD</p>
+    <div class="focus-grid">
+      @for (area of focusAreas; track area.id) {
+        <article class="focus-item" data-animate>
+          <h2>{{ area.title }}</h2>
+          <p>{{ area.detail }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="about-section project-story" data-animate>
+    <p class="eyebrow">04 / A PROJECT THAT GREW</p>
+
+    <div class="story-block">
+      <h2>Started as</h2>
+      <p>{{ projectStory.startedAs }}</p>
+    </div>
+
+    <div class="story-block">
+      <h2>Grew to include</h2>
+      <ul>
+        @for (item of projectStory.grewToInclude; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="story-block">
+      <h2>Became important at scale</h2>
+      <p>{{ projectStory.becameImportantAt }}</p>
+    </div>
+  </section>
+
+  <section class="about-section ai-chapter" data-animate>
+    <p class="eyebrow">05 / THE AI CHAPTER</p>
+    <blockquote>AI is not the end of software engineering. It is another way to extend what we can build.</blockquote>
+    <p>
+      My work sits between human intelligence and artificial intelligence, with a practical focus on
+      products that solve real problems.
+    </p>
+
+    <ul>
+      @for (item of aiFocus; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </section>
+
+  <section class="about-section philosophy" data-animate>
+    <p class="eyebrow">06 / MY PHILOSOPHY</p>
+    <p class="quote">{{ philosophy.primary }}</p>
+    <p class="supporting">{{ philosophy.supporting }}</p>
+  </section>
+</section>
