@@ -4,6 +4,38 @@
 **Status**: Complete  
 **Scope**: Technical patterns, browser compatibility, Angular patterns
 
+## 9. Visual Verification-Guided Planning
+
+### Decision
+Treat `checklists/visual-verification.md` as a required validation artifact
+that informs implementation order and acceptance evidence, while keeping
+`spec.md` as the functional source of truth and `plan.md` as the implementation
+source of truth.
+
+### Rationale
+- The current visual report identifies critical composition gaps that build and
+  lint cannot detect.
+- The approved mockup is explicitly the visual source of truth.
+- Visual, responsive, accessibility, base-path, and deployment tasks require
+  concrete runtime evidence before their task checkboxes may be marked.
+- Preserving the checklist path avoids losing the existing discrepancy baseline.
+
+### Decisions from the report
+- Correct composition and hierarchy before microanimation.
+- Rebuild neural-face density and recognition before tuning glow.
+- Use the existing Lucide dependency for icon-led stages and capabilities.
+- Keep the Project Growth diagram and AI field as explicit visual structures,
+  not plain text fallbacks.
+- Validate desktop, tablet, and mobile renders separately.
+
+### Alternatives considered
+- Treating a successful build as visual acceptance: rejected because it cannot
+  detect hierarchy, density, alignment, or composition regressions.
+- Replacing the checklist with a new report: rejected because the user requires
+  the existing validation artifact to remain in place.
+- Adding a screenshot/visual regression dependency: rejected under the
+  project's dependency-discipline and simplicity principles; manual/browser
+  evidence is sufficient for this static feature.
 ---
 
 ## 1. Intersection Observer for Animation

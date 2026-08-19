@@ -3,13 +3,20 @@
     <div class="intro-content">
       <div class="intro-text">
         <p class="eyebrow">01 / ABOUT ME</p>
-        <h1>From building software to exploring intelligence.</h1>
+        <h1>From building software <span class="hero-accent">to exploring intelligence.</span></h1>
         <p class="hero-description">{{ heroDescription }}</p>
         <div class="architectural-accent" aria-hidden="true"></div>
 
         <div class="descriptor-list" aria-label="Professional descriptors">
-          @for (descriptor of descriptors; track descriptor) {
-            <span class="descriptor">{{ descriptor }}</span>
+          @for (descriptor of descriptors; track descriptor.label) {
+            <span class="descriptor">
+              @switch (descriptor.icon) {
+                @case ('monitor') { <svg lucideMonitor size="18"></svg> }
+                @case ('layers') { <svg lucideLayers size="18"></svg> }
+                @case ('brain') { <svg lucideBrain size="18"></svg> }
+              }
+              {{ descriptor.label }}
+            </span>
           }
         </div>
       </div>
@@ -146,6 +153,11 @@
           }
           <h2>{{ stage.title }}</h2>
           <p>{{ stage.summary }}</p>
+          <ul class="stage-tags" aria-label="Technologies">
+            @for (technology of stage.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
         </article>
       }
     </div>
@@ -164,6 +176,11 @@
           }
           <h2>{{ area.title }}</h2>
           <p>{{ area.detail }}</p>
+          <ul class="focus-topics" aria-label="Focus areas">
+            @for (topic of area.topics; track topic) {
+              <li>{{ topic }}</li>
+            }
+          </ul>
         </article>
       }
     </div>
@@ -192,18 +209,25 @@
     </div>
 
     <div class="growth-diagram" aria-label="Project growth architecture diagram" role="img">
-      <div class="diagram-node diagram-start">Medical Contracting</div>
+      <div class="diagram-node diagram-start">
+        <svg lucideBoxes size="18"></svg>
+        Medical Contracting
+      </div>
       <div class="diagram-line diagram-line-main"></div>
-      <div class="diagram-node diagram-core">Integration Layer</div>
+      <div class="diagram-node diagram-core">
+        <svg lucideNetwork size="18"></svg>
+        Integration Layer
+      </div>
       <div class="diagram-branches" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
       <div class="diagram-destinations">
-        <div class="diagram-node">Medical Authorizations</div>
-        <div class="diagram-node">Contact Center</div>
-        <div class="diagram-node">Administrative Area</div>
+        <div class="diagram-node"><svg lucideLayers size="18"></svg>Medical Authorizations</div>
+        <div class="diagram-node"><svg lucideLink size="18"></svg>Contact Center</div>
+        <div class="diagram-node"><svg lucideSettings size="18"></svg>Administrative Area</div>
       </div>
     </div>
+    <p class="impact-note">A focused tool became shared infrastructure for communication at scale.</p>
   </section>
 
   <section class="about-section ai-chapter" data-animate>
@@ -214,9 +238,9 @@
       products that solve real problems.
     </p>
 
-    <ul>
+    <ul class="ai-capabilities">
       @for (item of aiFocus; track item) {
-        <li>{{ item }}</li>
+        <li><svg lucideBrain size="18"></svg><span>{{ item }}</span></li>
       }
     </ul>
     <div class="ai-field" aria-hidden="true"></div>
@@ -226,5 +250,6 @@
     <p class="eyebrow">06 / MY PHILOSOPHY</p>
     <p class="quote">{{ philosophy.primary }}</p>
     <p class="supporting">{{ philosophy.supporting }}</p>
+    <a class="philosophy-link" routerLink="/">Return to the portfolio</a>
   </section>
 </section>

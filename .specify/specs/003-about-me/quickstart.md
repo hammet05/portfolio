@@ -3,6 +3,32 @@
 **Date**: 2026-08-18  
 **Audience**: Developers implementing the About Me feature
 
+### Visual Verification Gate
+
+Before marking visual or runtime tasks complete, inspect the existing report:
+
+```text
+.specify/specs/003-about-me/checklists/visual-verification.md
+```
+
+Do not move, rename, duplicate, or replace that file. Compare the rendered
+About page against:
+
+```text
+.specify/specs/003-about-me/mockups/about-me-approved.png
+```
+
+Capture evidence at 375px, 768px, 1024px, and 1280px. Verify:
+
+- Hero composition and neural-face density.
+- Horizontal desktop and vertical mobile journey timelines.
+- Project Growth architecture diagram.
+- AI Chapter blue/purple field and capability indicators.
+- No horizontal overflow.
+- Keyboard focus, text contrast, and reduced motion.
+- `/portfolio/about` under the GitHub Pages base path.
+
+Only mark the corresponding `tasks.md` checkbox after the evidence is checked.
 ---
 
 ## Prerequisites

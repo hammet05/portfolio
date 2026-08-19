@@ -3,6 +3,25 @@
 **Date**: 2026-08-18  
 **Scope**: Content structure, data entities, field definitions
 
+## Visual Verification Data Requirements
+
+The visual verification report identified data required for fidelity that must
+be represented explicitly in the feature model:
+
+- `EngineeringJourneyStage.icon`: existing Lucide icon identifier.
+- `EngineeringJourneyStage.technologies`: concise technology labels rendered
+  beneath or beside the stage summary.
+- `FocusArea.icon`: existing Lucide icon identifier.
+- `FocusArea.areas`: optional topic labels for editorial density.
+- `ProjectGrowthStory.nodes`: semantic diagram nodes for the starting system,
+  integration layer, and destination capabilities.
+- `ProjectGrowthStory.connections`: directional relationships rendered by SVG
+  or CSS, not required as runtime graph state.
+- `AIDirection.capabilities`: four icon-led items covering Chatbots, LLMs, RAG,
+  and AI Applications.
+
+These fields remain static, typed, and local to `AboutPageComponent`; they do
+not justify a service or shared domain model.
 ---
 
 ## Overview
