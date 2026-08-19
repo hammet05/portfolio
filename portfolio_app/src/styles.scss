@@ -2,6 +2,7 @@
 @use './styles/typography';
 @use './styles/layout';
 @use './styles/utilities';
+@use './styles/about';
 
 @tailwind base;
 @tailwind components;
@@ -177,6 +178,57 @@ h3 {
   }
 }
 
+ .architectural-accent {
+   width: min(18rem, 100%);
+   height: 1px;
+   margin-top: 1.5rem;
+   background: linear-gradient(90deg, var(--color-primary), rgba(147, 76, 255, .85), transparent);
+ }
+ .architectural-accent::before {
+   content: '';
+   display: block;
+   width: .75rem;
+   height: .75rem;
+   transform: translateY(-.35rem) rotate(45deg);
+   border-top: 1px solid var(--color-primary);
+   border-right: 1px solid var(--color-primary);
+ }
+ .engineering-journey .journey-grid {
+   position: relative;
+ }
+ .engineering-journey .journey-grid::before {
+   content: '';
+   position: absolute;
+   top: 3.5rem;
+   left: 5%;
+   right: 5%;
+   height: 1px;
+   background: linear-gradient(90deg, var(--color-primary), rgba(147, 76, 255, .85));
+ }
+ .journey-item {
+   position: relative;
+ }
+ .journey-item::before {
+   content: '';
+   position: absolute;
+   top: 3.2rem;
+   left: 1.25rem;
+   width: .65rem;
+   height: .65rem;
+   border: 2px solid var(--color-primary);
+   border-radius: 50%;
+   background: var(--color-bg);
+ }
+ .ai-chapter {
+   position: relative;
+   overflow: hidden;
+ }
+ .ai-field {
+   height: 3rem;
+   margin: 1.5rem -1.25rem -1.25rem;
+   background: radial-gradient(ellipse at center bottom, rgba(91, 140, 255, .35), transparent 68%);
+   border-top: 1px solid rgba(91, 140, 255, .25);
+ }
 .info-card,
 .project-card,
 .stack-item,
@@ -278,3 +330,5 @@ h3 {
     transition: none;
   }
 }
+
+.about-page{max-width:var(--container-max-width);margin:auto;padding:2rem 1rem 5rem}.about-section{padding:clamp(2.5rem,5vw,5rem) 0;border-top:1px solid rgba(255,255,255,.08)}.about-section:first-child{border:0}.about-page .eyebrow{margin:0 0 1rem;color:var(--color-text-muted);font-size:.82rem;letter-spacing:.18em;text-transform:uppercase}.intro-content,.journey-grid,.focus-grid{display:grid;gap:1.25rem}.about-intro h1{max-width:16ch;font-size:clamp(2.8rem,5vw,5.25rem);line-height:.96;letter-spacing:-.06em}.hero-description{max-width:38rem;margin:1.25rem 0 0;color:var(--color-text-muted);line-height:1.7}.descriptor-list{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}.descriptor{padding:.45rem .9rem;border:1px solid var(--color-border);border-radius:9999px;color:var(--color-text)}.neural-viz{width:100%;max-width:340px;margin:auto}.neural-face{display:block;width:100%;filter:drop-shadow(0 0 18px rgba(91,140,255,.18))}.journey-grid,.focus-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}.focus-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.journey-item,.focus-item,.story-block,.ai-chapter,.philosophy{padding:1.25rem;border:1px solid rgba(255,255,255,.08);border-radius:1rem;background:rgba(255,255,255,.02)}.journey-item h2,.focus-item h2,.story-block h2{margin:0 0 .6rem;font-size:1.1rem}.journey-item p,.focus-item p,.story-block p,.story-block li,.ai-chapter p,.ai-chapter li,.philosophy .supporting{color:var(--color-text-muted)}.stage-number{display:block;margin-bottom:1rem;color:var(--color-primary);font-size:.8rem;letter-spacing:.15em}.story-block ul,.ai-chapter ul{margin:1rem 0 0;padding-left:1.25rem}.story-block+.story-block{margin-top:1rem}.ai-chapter blockquote{max-width:18ch;margin:0 0 1rem;font-size:clamp(1.4rem,3vw,2.2rem);line-height:1.1}.philosophy .quote{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.05em}.philosophy .supporting{margin-top:.75rem}.growth-diagram{display:grid;justify-items:center;gap:.75rem;margin-top:2rem}.diagram-node{padding:.7rem 1rem;border:1px solid rgba(91,140,255,.4);border-radius:.5rem;background:rgba(91,140,255,.06);font-size:.85rem;text-align:center}.diagram-line{width:1px;height:1.25rem;background:var(--color-primary)}.diagram-branches{display:grid;grid-template-columns:repeat(3,1fr);width:80%;height:1rem;border-top:1px solid var(--color-primary)}.diagram-branches span{border-left:1px solid var(--color-primary)}.diagram-destinations{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;width:100%}@media (min-width:768px){.intro-content{grid-template-columns:1.1fr .9fr;gap:4rem}.neural-viz{max-width:100%}}@media (prefers-reduced-motion:reduce){.about-page *{animation:none!important;transition:none!important}}

@@ -1,403 +1,835 @@
 ﻿# Feature Specification: About Me
 
-**Feature ID:** 003-about-me  
-**Feature Name:** About Me  
-**Feature Branch**: `feature/003-about`  
-**Created**: 2026-08-16  
-**Status**: Draft  
-**Language**: English  
-**Input**: User description: "Create the portfolio's dedicated About Me page as a concise professional narrative that explains the developer's evolution from software engineering toward Artificial Intelligence."
+- **Feature ID:** 003-about-me
+- **Feature Name:** About Me
+- **Feature Branch:** `feature/003-about`
+- **Created:** 2026-08-18
+- **Status:** Draft
+- **Language:** English
+- **Input:** User description: "Create the portfolio's dedicated About Me page as a concise professional narrative that explains the developer's evolution from software engineering toward Artificial Intelligence."
+
+---
 
 ## 1. Purpose
 
-Create a dedicated About Me page for the portfolio that communicates a concise professional narrative about the developer's evolution from software engineering toward Artificial Intelligence.
+Create a dedicated About Me page for the portfolio that communicates a concise
+professional narrative about the developer's evolution from software
+engineering toward Artificial Intelligence.
 
-The page must establish the developer's experience and direction without duplicating a CV and must complement the rest of the portfolio with a focused, polished narrative experience.
+The page must establish the developer's experience, technical evolution,
+problem-solving approach, real-world impact, and current AI direction without
+duplicating a CV.
 
-A developer MUST NOT replace the approved visual language with a generic
-dashboard, Material Design, Bootstrap, Tailwind UI, or template-based
-interpretation.
+The page must feel like a natural extension of the existing portfolio rather
+than a standalone microsite.
 
-The implementation should feel like the same design system shown in the
-approved mockup.
+The implementation MUST remain simple, maintainable, dependency-light, and
+compatible with the project's existing Angular and GitHub Pages foundation.
 
-## 2. Approved Visual Reference
+The implementation MUST NOT replace the approved visual language with a
+generic dashboard, resume template, Material Design, Bootstrap, Tailwind UI,
+or other template-based interpretation.
+
+---
+
+## 2. Specification-Only Execution Constraint
+
+This specification defines the requirements for the feature.
+
+When this specification is created or updated through `/speckit.specify`:
+
+- Only the feature specification MUST be created or updated.
+- No implementation code MUST be generated.
+- No Angular components MUST be created.
+- No SCSS/CSS MUST be generated.
+- No SVG implementation MUST be generated.
+- No `plan.md` MUST be generated or modified.
+- No `tasks.md` MUST be generated or modified.
+- No dependencies MUST be installed.
+- No build, test, lint, or deployment command MUST be executed.
+
+Implementation planning belongs to `/speckit.plan`.
+
+Implementation task generation belongs to `/speckit.tasks`.
+
+---
+
+# 3. Approved Visual Reference
 
 The approved visual reference for this feature is:
 
 `mockups/about-me-approved.png`
 
-This image is the primary visual reference for the implementation of the
-About Me feature.
+The mockup is the **visual source of truth for the composition and visual
+direction of this feature**.
 
-The implementation MUST reproduce the visual language, hierarchy,
-composition, spacing relationships, proportions, color relationships,
-typography hierarchy, borders, cards, icon treatment, architectural
-elements, gradients, and overall visual density represented in the approved
-mockup.
+It is NOT an inspirational reference.
 
-The mockup MUST be treated as a design reference, not as an image to be
-embedded or reproduced as a single bitmap.
+The implementation MUST reproduce the visual composition represented by the
+approved mockup while respecting the project's higher-level technical,
+accessibility, maintainability, and responsive constraints.
 
-The implementation MUST recreate the visual design using Angular templates,
-HTML, SCSS/CSS, CSS custom properties, SVG and existing project capabilities.
+The mockup MUST NOT be embedded as a single bitmap to reproduce the page.
 
-The implementation MUST NOT introduce a new frontend library solely to
-reproduce the mockup.
+The visual design MUST be recreated using the existing project capabilities,
+including:
 
-### Visual fidelity priorities
+- Angular templates.
+- Semantic HTML.
+- SCSS/CSS.
+- Existing CSS custom properties and design tokens.
+- SVG where appropriate.
+- CSS animations where appropriate.
+- Existing project iconography.
 
-When implementing the mockup, the following priorities MUST be preserved:
+No new frontend dependency may be introduced solely to reproduce the mockup.
 
-1. Overall composition and section hierarchy.
-2. Dark visual environment and contrast relationships.
-3. Typography scale and hierarchy.
-4. Spacing and negative space.
-5. Card dimensions, borders and surface treatment.
-6. Blue-to-purple accent system.
-7. Architectural lines and connection elements.
-8. Icon size, stroke treatment and positioning.
-9. Controlled gradients and luminous accents.
-10. Microanimations and subtle visual feedback.
+---
 
-### Source of truth hierarchy
+## 3.1 Visual Source-of-Truth Hierarchy
 
-When requirements appear to conflict, use the following priority:
+When requirements appear to conflict, use the following hierarchy:
 
 1. `constitution.md`
 2. `instructions.frontend.md`
-3. This feature specification
+3. `specs/003-about-me/spec.md`
 4. `mockups/about-me-approved.png`
 
 The mockup MUST NOT override accessibility, maintainability, responsive
 behavior, technical constraints, or architectural rules defined by the
 project documentation.
 
-### Responsive interpretation
+However, when implementing the visual design within those constraints, the
+approved mockup MUST be treated as the target composition rather than merely
+as inspiration.
 
-The approved mockup represents the primary desktop visual composition.
+---
 
-The implementation MUST preserve its visual language on smaller screens
-while adapting layout, spacing, typography and component arrangement to
-avoid horizontal scrolling and maintain usability.
+# 4. Visual Fidelity Requirements
 
-The mobile layout MUST NOT be treated as a pixel-for-pixel reproduction
-of the desktop mockup.
-## Visual Design Tokens
+The implementation MUST preserve the following visual characteristics from
+the approved mockup:
 
-The About Me feature MUST use the project's global design token system.
+1. Overall composition and section hierarchy.
+2. Hero two-column composition on desktop.
+3. Large display typography.
+4. Generous negative space.
+5. Dark visual environment.
+6. Subtle borders.
+7. Restrained card/surface treatment where shown in the mockup.
+8. Blue-to-purple accent system.
+9. Controlled gradients.
+10. Architectural lines.
+11. Neural network face visualization in the Hero.
+12. Horizontal Engineering Journey timeline.
+13. Visual Project Growth diagram.
+14. AI Chapter visual treatment.
+15. Consistent iconography.
+16. Controlled luminous accents.
+17. Subtle microanimations.
+18. Consistent spacing rhythm.
+19. Strong visual hierarchy.
+20. Overall visual density comparable to the approved mockup.
 
-The following feature-level visual values represent the approved mockup and
-MUST be implemented through CSS custom properties rather than hardcoded
-values throughout individual components.
+A visually simplified interpretation that preserves only the text content but
+changes the composition MUST NOT be considered an acceptable implementation.
 
-The final implementation MUST reconcile these values with the global design
-tokens defined by the frontend instructions.
+The result MUST NOT visually resemble:
 
-### Neural Face Visualization
-Recreate the visual treatment shown in the approved mockup
+- A generic resume.
+- A blog article.
+- A dashboard.
+- A collection of unrelated cards.
+- A plain documentation page.
+- A generic portfolio template.
 
-The About Me hero MUST reproduce the neural-network face visualization
-shown in the approved visual mockup:
+---
+
+# 5. Page Composition
+
+The About page MUST be implemented as one continuous vertically scrolling
+experience.
+
+The desktop composition MUST follow the visual structure represented in the
+approved mockup.
+
+The page MUST contain the following sections in this exact order:
+
+1. `01 / ABOUT ME`
+2. `02 / ENGINEERING JOURNEY`
+3. `03 / WHAT I BUILD`
+4. `04 / A PROJECT THAT GREW`
+5. `05 / THE AI CHAPTER`
+6. `06 / MY PHILOSOPHY`
+
+The sections MUST visually form one coherent narrative.
+
+The page MUST NOT use mandatory scroll snapping.
+
+---
+
+# 6. Hero — 01 / ABOUT ME
+
+The Hero is the primary visual introduction to the page.
+
+The desktop Hero MUST use a two-column composition.
+
+### Left side
+
+The left side MUST contain:
+
+- Section identifier: `01 / ABOUT ME`.
+- Main headline.
+- Supporting professional description.
+- Three professional descriptors:
+  - Software Engineer.
+  - Systems Builder.
+  - AI Explorer.
+
+### Main headline
+
+The Hero MUST use:
+
+> From building software to exploring intelligence.
+
+The headline MUST be one of the largest typographic elements on the page.
+
+It MUST visually dominate the supporting paragraph and descriptors.
+
+The headline MUST preserve the visual hierarchy represented by the approved
+mockup.
+
+### Right side
+
+The right side MUST contain the neural network face visualization described
+in Section 7.
+
+The neural visualization MUST be large enough to function as a primary Hero
+visual element.
+
+It MUST NOT be reduced to a small decorative icon or generic abstract
+particle graphic.
+
+### Hero composition requirements
+
+The desktop Hero MUST NOT become a generic single-column content block.
+
+The Hero MUST preserve:
+
+- Large headline on the left.
+- Neural visualization on the right.
+- Significant negative space.
+- Architectural visual accents.
+- Controlled blue/purple illumination.
+
+The neural visualization MUST remain visually complementary to the headline
+and MUST NOT overpower the textual narrative.
+
+---
+
+# 7. Neural Face Visualization
+
+The Hero MUST contain a neural-network visualization representing a human
+right-facing side profile.
+
+The visual treatment MUST resemble the human profile shown in:
 
 `mockups/about-me-approved.png`
 
-The visualization consists of a human side-profile silhouette constructed
-from interconnected points and thin geometric lines.
+The visualization is a primary Hero visual element.
 
-The visual MUST preserve the appearance and proportions represented in the
-approved mockup.
+It MUST NOT be implemented as a generic particle sphere, abstract mesh,
+geometric globe, or small decorative icon.
 
-Create specific tokens to visualize this graph
+---
 
-### Neural network density
+## 7.1 Visual Structure
+
+The neural face MUST contain:
+
+- Recognizable human side-profile geometry.
+- Nodes forming the facial structure.
+- Thin connections between nodes.
+- Small bright focal nodes.
+- Lower-density peripheral nodes.
+- Blue luminous treatment.
+- Controlled blue-to-purple accents.
+- Transparent background.
+- Subtle atmospheric glow.
+- Significant negative space.
+
+The visualization MUST NOT use a solid filled human silhouette.
+
+---
+
+## 7.2 Neural Network Density
 
 Node and connection density MUST be concentrated around the facial profile.
 
-The surrounding area MUST progressively reduce in density and opacity.
+The face area MUST contain more visual information than the surrounding
+space.
 
-The visualization MUST avoid uniform distribution of nodes, as this would
-change the visual character of the approved mockup.
+Peripheral nodes and connections MUST progressively reduce in:
 
-### Implementation
+- Density.
+- Opacity.
+- Visual intensity.
 
-The visualization SHOULD be implemented using SVG rather than CSS-only
-drawing.
+The visualization MUST NOT use a uniformly distributed particle network.
 
-SVG MUST be used for:
+The resulting visual MUST remain recognizable as a human profile at normal
+desktop viewing size.
 
-- The human profile geometry.
+---
+
+## 7.3 Implementation Direction
+
+SVG SHOULD be used as the primary representation technology for the neural
+visualization.
+
+SVG is preferred for:
+
+- Facial geometry.
 - Neural nodes.
-- Connections between nodes.
-- Small luminous points.
-- Geometric network structure.
-- Gradient strokes where required.
+- Connections.
+- Geometric lines.
+- Luminous points.
+- Controlled gradients.
 
-CSS MAY be used to provide:
+CSS MAY be used for:
 
-- Glow effects.
+- Glow.
 - Opacity transitions.
-- Subtle node pulsing.
-- Very subtle line animation.
-- Hover or visibility transitions.
+- Node pulsing.
+- Subtle animation.
 - Responsive sizing.
+- Reduced-motion behavior.
 
-The visualization MUST NOT be implemented as a raster image.
+The implementation MUST NOT use:
 
-The implementation MUST NOT introduce a new JavaScript visualization,
-canvas, animation, graphics, or UI library.
+- Canvas.
+- A third-party visualization library.
+- A particle library.
+- A new animation library.
+- A raster image as the neural visualization.
 
-### Visual characteristics
+---
 
-The neural face MUST preserve the following characteristics from the
-approved mockup:
-
-- Right-facing human profile.
-- Dark background.
-- Thin blue geometric connections.
-- Small blue and white luminous nodes.
-- Higher node density around the face.
-- Lower density toward the surrounding area.
-- Subtle fading of peripheral connections.
-- Predominantly blue illumination.
-- Very controlled blue-to-purple accents.
-- Fine line weight.
-- Large amount of transparent/negative space.
-- Subtle atmospheric glow.
-- No solid filled human silhouette.
-
-The visualization MUST remain secondary to the hero typography.
-
-### Animation
+## 7.4 Neural Visualization Animation
 
 The visualization SHOULD include subtle motion.
 
-Animation MUST remain slow and restrained and MUST NOT behave like a
-high-energy particle animation.
+Animation MUST remain slow, restrained, and atmospheric.
 
-Possible animations include:
+It MUST NOT resemble a high-energy particle effect.
 
-- Individual nodes slowly pulsing.
-- Very subtle opacity variations.
-- Occasional light propagation along selected connections.
-- Extremely subtle movement of peripheral particles.
+Possible motion includes:
 
-Animations MUST respect:
+- Slow node pulsing.
+- Very subtle opacity variation.
+- Occasional light propagation through selected connections.
+- Very subtle peripheral particle movement.
+
+The entire network MUST NOT continuously move as a single object.
+
+Animation MUST respect:
 
 `prefers-reduced-motion: reduce`
 
-When reduced motion is enabled, all non-essential animation MUST be
-disabled or reduced to a static representation.
-
-### Responsive behavior
-
-The SVG MUST scale proportionally with its container.
-
-The face MUST remain visually recognizable at desktop and tablet sizes.
-
-On small screens, the visualization MAY be reduced in size or repositioned
-to preserve the readability of the hero content.
-
-The visualization MUST NOT cause horizontal scrolling.
-
-
-
-### AI Chapter visual treatment
-
-The AI Chapter MAY use a subtle abstract technological field or wave
-implemented with CSS/SVG.
-
-It MUST NOT use the previously rejected large neural-network/head
-illustration.
-
-The visual MUST remain subordinate to the typography and content.
-
-It MUST use the approved blue-to-purple accent palette and MUST NOT
-introduce additional colors.
-
-## 3. User Scenarios & Testing
-
-### User Story 1 - Understand the professional profile (Priority: P1)
-
-As a recruiter, employer, collaborator, or academic contact, I want to quickly understand the developer's professional background, technical evolution, and current AI direction so that I can evaluate the profile beyond a conventional CV.
-
-**Why this priority**: This is the core purpose of the page and the main reason the route exists.
-
-**Independent Test**: A user can open `/about` and understand the developer's background, progression, and AI direction in a short review without needing additional materials.
-
-**Acceptance Scenarios**:
-
-1. **Given** a visitor lands on the About page, **When** they review the primary narrative, **Then** they can understand the developer's software engineering foundation and current AI direction.
-2. **Given** the page is read in sequence, **When** the engineering journey is reviewed, **Then** it clearly communicates the transition from building applications to exploring intelligence.
-3. **Given** the page content is concise, **When** a visitor scans it, **Then** it reads as a professional narrative rather than a full résumé.
+When reduced motion is active, non-essential animation MUST be disabled or
+substantially reduced.
 
 ---
 
-### User Story 2 - Understand the transition toward AI (Priority: P1)
+# 8. Engineering Journey — 02
 
-As a technical recruiter or employer, I want to understand why the developer is moving from software engineering toward AI so that I can see how previous engineering experience supports this new direction.
+The Engineering Journey MUST communicate the developer's technical evolution
+as a visual narrative rather than as a conventional chronological CV.
 
-**Why this priority**: The transition itself is central to the feature's message and must be visible clearly.
+The section MUST contain these five stages:
 
-**Independent Test**: A visitor can read the Engineering Journey and AI Chapter and identify the connection between systems experience and AI experimentation.
-
-**Acceptance Scenarios**:
-
-1. **Given** the Engineering Journey section, **When** a user reads it, **Then** they can see the progression from application development to distributed systems and modernization.
-2. **Given** the AI Chapter, **When** a user reads it, **Then** they understand AI is being approached as an extension of software engineering rather than a replacement.
-3. **Given** the page includes the AI focus, **When** a user reviews it, **Then** they can see practical experimentation with chatbots, LLMs, and RAG.
-
----
-
-### User Story 3 - See evidence of real-world impact (Priority: P1)
-
-As a recruiter or employer, I want to see a concrete example of a system that evolved beyond its original purpose so that I can understand the developer's ability to solve problems and create organizational impact.
-
-**Why this priority**: This proves the professional narrative is grounded in actual problem solving, not just technology interest.
-
-**Independent Test**: A visitor can read the healthcare project narrative and clearly identify the system's growth from a single-user tool into a multi-area national platform.
-
-**Acceptance Scenarios**:
-
-1. **Given** the Project That Grew section, **When** a user reads it, **Then** they understand it started as a single-user application for medical contracting.
-2. **Given** the same section, **When** the reader continues, **Then** they see that it grew through integration with authorizations, contact center operations, and administrative areas.
-3. **Given** the final project narrative, **When** the user reaches the end, **Then** they understand the system became important at a national level.
+1. Building Applications.
+2. Connecting Systems.
+3. Distributed Systems.
+4. Modernizing Systems.
+5. Exploring Intelligence.
 
 ---
 
-### Edge Cases
+## 8.1 Visual Composition
 
-- What happens when the page is viewed without animation support or when `prefers-reduced-motion` is active?
-- How does the layout behave on mobile and tablet while preserving reading order and avoiding horizontal overflow?
-- What happens if a user navigates to `/about` under a GitHub Pages base path such as `/portfolio/about`?
-- How should the page behave when the section labels and visual hierarchy are reviewed by keyboard and screen-reader users?
-- What happens when the content is intentionally kept concise so it does not become a replacement for the CV?
+On desktop, the Engineering Journey MUST be represented as a horizontal
+timeline.
 
-## 4. Requirements
+The five stages MUST visually belong to the same system.
 
-### Functional Requirements
+The stages MUST NOT be rendered as a generic grid of independent cards.
 
-- **FR-001**: The About page MUST be available at the canonical route `/about`.
-- **FR-002**: The page MUST be reachable through the existing global navigation and application shell.
-- **FR-003**: The page MUST use the existing application shell and MUST NOT implement a separate application-level header, footer, or navigation.
-- **FR-004**: The page MUST be implemented as one continuous vertically scrolling document without mandatory scroll snapping.
-- **FR-005**: The About page MUST contain the following sections in this exact order: `01 / ABOUT ME`, `02 / ENGINEERING JOURNEY`, `03 / WHAT I BUILD`, `04 / A PROJECT THAT GREW`, `05 / THE AI CHAPTER`, and `06 / MY PHILOSOPHY`.
-- **FR-006**: The page MUST establish professional identity immediately and introduce the narrative of moving from software engineering toward AI.
-- **FR-007**: The About page MUST communicate more than 10 years of software development experience, .NET expertise, full-stack experience including Angular, API and integration experience, distributed systems experience, and modernization work.
-- **FR-008**: The page MUST include a concrete example of a real organizational software problem that grew beyond its original purpose.
-- **FR-009**: The page MUST describe the current transition toward Artificial Intelligence, including practical experimentation with chatbots, LLMs, and RAG.
-- **FR-010**: The page MUST communicate a professional goal of building useful systems that combine software engineering and AI.
-- **FR-011**: The page MUST complement the CV rather than reproduce it.
-- **FR-012**: The section identifier treatment MUST visually align with the approved portfolio design system.
-- **FR-013**: The page must use the approved dark, minimal, technical visual direction, including large typography, generous negative space, subtle borders, restrained surfaces, controlled gradients, and architectural lines.
-- **FR-014**: The page MUST preserve the approved design system by consuming the existing global design tokens and must not create a parallel design-token system.
-- **FR-015**: The page MUST respect the project's existing typography hierarchy and primarily reserve large display typography for section-defining statements.
-- **FR-016**: The page MUST support subtle motion and progressive enhancement without requiring interaction to understand the content.
-- **FR-017**: The page MUST respect `prefers-reduced-motion: reduce` by disabling or substantially reducing non-essential motion.
-- **FR-018**: The page MUST use semantic HTML and maintain a meaningful heading hierarchy.
-- **FR-019**: The page MUST remain responsive on mobile, tablet, and desktop without creating separate implementations.
-- **FR-020**: The page MUST avoid horizontal scrolling and maintain readable content flow on narrower screens.
-- **FR-021**: The page MUST work correctly under the repository base path used by GitHub Pages, including `/portfolio/` context.
-- **FR-022**: The feature MUST use existing Angular standalone architecture and must not add new frontend dependencies.
-- **FR-023**: The implementation MUST avoid unjustified `any` usage and remain type-safe.
-- **FR-024**: Sections MUST be implemented as full-width semantic `<section>` blocks with `max-width` container constraint and generous padding/spacing. No card or surface pattern is required. Visual treatment remains clean, minimal, and architecturally focused.
+The timeline MUST contain:
 
-### Section-Specific Requirements
+- Stage number.
+- Stage title.
+- Icon.
+- Supporting technologies/concepts.
+- Timeline node.
+- Continuous architectural connection between stages.
 
-#### Section 01 — About Me
+The visual structure should communicate:
 
-- **FR-025**: The first section MUST present the heading: “From building software to exploring intelligence.”
-- **FR-026**: The section MUST include the professional descriptors: “Software Engineer,” “Systems Builder,” and “AI Explorer.”
-- **FR-027**: The section MUST prioritize large typography, negative space, dark background, subtle architectural line elements, and restrained luminous accents.
-- **FR-028**: The section MUST not require a large stock photograph.
+```text
+01          02          03          04          05
+●───────────●───────────●───────────●───────────●
+Building    Connecting  Distributed Modernizing Exploring
+Applications Systems    Systems     Systems     Intelligence
+```
+The exact implementation may vary according to responsive requirements, but
+the desktop composition MUST preserve this visual relationship
 
-#### Section 02 — Engineering Journey
+# 8.2 Interaction
 
-- **FR-029**: The section MUST present the developer's technical evolution as a visual narrative rather than a chronological CV.
-- **FR-030**: The section MUST include the five approved stages: Building Applications, Connecting Systems, Distributed Systems, Modernizing Systems, and Exploring Intelligence.
-- **FR-031**: The Engineering Journey MUST support static readability and use Intersection Observer with CSS animations (`@keyframes`) to detect viewport entry and progressively activate stage visibility. Hover highlighting is optional. Content remains fully readable without animation or JavaScript.
-- **FR-032**: The section MUST not use click-to-expand or accordion behavior.
+The Engineering Journey MUST remain fully readable without animation.
 
-#### Section 03 — What I Build
+Subtle enhancement MAY include:
 
-- **FR-033**: The section MUST explain the developer's focus on software engineering, integration and automation, and intelligent systems.
-- **FR-034**: The section MUST emphasize problem solving and practical impact instead of presenting a generic technology list.
+Intersection Observer.
+CSS @keyframes.
+Progressive stage activation.
+Hover highlighting.
 
-#### Section 04 — A Project That Grew
+The section MUST NOT require:
 
-- **FR-035**: The section MUST communicate that the healthcare project began as a single-user application for medical contracting. Present in a clearly marked opening part: "Started as..."
-- **FR-036**: The section MUST explain that the system was subsequently integrated with medical authorizations, contact center operations, and administrative areas. Present in a clearly marked middle part: "Grew to include..."
-- **FR-037**: The section MUST clearly communicate that the system evolved into an important communication platform used at a national level. Present in a clearly marked final part: "Became important at scale..." The progression must be visually and textually clear to satisfy AC-007.
-- **FR-038**: The three-part narrative structure is sufficient; optional architectural lines or connection visuals may support but are not required for clarity. Narrative text is primary.
-- **FR-039**: The section MUST not invent numerical metrics, dates, performance figures, or technical details that are not supported by the approved content.
+Click interaction.
+Accordions.
+Tabs.
+Expand/collapse behavior.
 
-#### Section 05 — The AI Chapter
+# 9. What I Build — 03
 
-- **FR-040**: The section MUST explain the current professional direction toward AI and must frame AI as a way to extend software engineering rather than replace it.
-- **FR-041**: The section MUST communicate the relationship between human intelligence and artificial intelligence.
-- **FR-042**: The section MUST describe practical AI applications, including chatbots, LLM-based applications, and RAG.
-- **FR-043**: The section MUST not contain a large vector or neural-network graphic.
-- **FR-044**: The section MUST remain primarily typographic and structural in composition.
+This section MUST communicate the developer's engineering focus and problem
+solving approach.
 
-#### Section 06 — My Philosophy
+The content MUST emphasize practical impact rather than presenting a generic
+technology list.
 
-- **FR-045**: The final section MUST place strong emphasis on the statement: “I don't just want to build AI. I want to build useful systems with AI.”
-- **FR-046**: The section MAY include the supporting line: “Always learning. Always building.”
+The section MUST include the following concepts:
 
-### Content Strategy Requirements
+Enterprise Systems.
+Integration & APIs.
+Automation.
+Modernization.
 
-- **FR-047**: The page MUST use a concise hybrid content strategy: short overall copy with deeper narrative treatment for the healthcare project story.
-- **FR-048**: The page MUST remain within an approximate content volume of 300–400 words total (all visible text: headings, section labels, body paragraphs, descriptors). Decorative or hidden text excluded. The target ensures the page complements rather than replaces the CV.
-- **FR-049**: The page MUST use concise introduction, engineering journey, and AI chapter copy, while giving more space to the project story.
+Each item MUST include:
 
-### Accessibility and Motion Requirements
+Icon.
+Title.
+Concise supporting description.
 
-- **FR-050**: The page MUST support keyboard navigation and visible focus states for all interactive elements.
-- **FR-051**: The page MUST treat decorative visuals as non-semantic or hidden from assistive technology where appropriate.
-- **FR-052**: The page MUST not rely on color alone to communicate meaning.
-- **FR-053**: The page MUST remain readable if motion and animations are disabled.
-- **FR-054**: Reduced motion MUST be respected for all non-essential animation and interaction.
+The visual composition SHOULD resemble the editorial vertical capability
+structure shown in the approved mockup.
 
-### Technical Constraints
+The items MUST NOT become unrelated dashboard cards.
 
-- **FR-055**: The feature MUST live under `portfolio_app/src/app/features/about/`.
-- **FR-056**: The feature MUST use Angular standalone architecture and the existing app router.
-- **FR-057**: The feature MUST not introduce new dependencies or libraries for animation, charting, or graphics.
-- **FR-058**: The feature MUST use the existing styling and token architecture without introducing a parallel system.
-- **FR-059**: The implementation MUST use a single monolithic `about-page.component` containing all six sections. No sub-components or feature-internal extraction is required unless a specific section demonstrates independent behavior, reusability, or complexity that justifies separation.
-- **FR-060**: The feature MUST maintain compatibility with the deployed GitHub Pages base path and not assume that `/about` is hosted at domain root.
+The section may use a restrained surface/card treatment consistent with the
+approved mockup and global design system.
 
-## 5. Key Entities
+# 10. A Project That Grew — 04
 
-- **AboutPageNarrative**: Represents the page-level story arc from software engineering to AI exploration, including the primary professional identity and thesis.
-- **EngineeringJourneyStage**: Represents one stage in the progression from building applications to exploring intelligence, including title and descriptive focus.
-- **ProjectGrowthStory**: Represents the healthcare-sector project narrative and its organizational expansion over time.
-- **SectionDefinition**: Represents each page section label and order for the About page narrative.
+This section MUST communicate the healthcare project narrative.
 
-## 6. Success Criteria
+The story MUST describe the evolution of:
 
-### Measurable Outcomes
+A single-user medical contracting application.
+An integration layer connecting multiple areas.
+A nationally used communication platform.
 
-- **SC-001**: The About page route is accessible at `/about` and uses the existing global layout and navigation.
-- **SC-002**: The page includes all six required sections in the correct order.
-- **SC-003**: A visitor can understand the developer’s engineering background and current AI direction without reading the CV.
-- **SC-004**: The Engineering Journey clearly communicates the progression from building applications to AI exploration within the approved interaction model.
-- **SC-005**: The healthcare project story communicates a clear evolution from a single-user tool into a nationally used multi-area communication platform.
-- **SC-006**: The AI Chapter communicates AI as an extension of software engineering and includes practical experimentation with chatbots, LLMs, and RAG.
-- **SC-007**: The final philosophy statement is visually emphasized and appears in the required wording.
-- **SC-008**: The design remains visually consistent with the portfolio design system and does not introduce independent styling.
-- **SC-009**: The page is usable without horizontal scrolling on mobile, tablet, and desktop.
-- **SC-010**: The page is keyboard accessible, type-safe, and compliant with reduced-motion preferences.
-- **SC-011**: The implementation does not introduce new frontend dependencies.
+The section MUST contain a visual representation of this progression.
 
-## 7. Assumptions
+## 10.1 Project Growth Diagram
 
-- The project’s existing application shell and global design system remain the source of truth for route-level layout and styling.
-- The approved mockup is treated as a visual reference only and is not a requirement for a separate specification asset in runtime code.
-- The page is a static digital narrative and does not require backend APIs, data services, or AI integrations.
-- The feature will remain simple and maintainable and will not create additional abstractions beyond what is required by the specification.
+The section MUST visually communicate the relationship between:
+```
+Medical Contracting
+        |
+        v
+Integration Layer
+    /      |       \
+   v       v        v
+Medical   Contact   Administrative
+Author.   Center    Area
+```
+The diagram MUST use visual connections, nodes, or architectural lines.
 
-## 8. Out of Scope
+The visual diagram MUST be a meaningful part of the section composition.
+
+It MUST NOT be replaced entirely by a textual list.
+
+The diagram MUST remain understandable without animation.
+
+## 10.2 Narrative
+
+The narrative MUST contain the following three conceptual stages:
+
+**Started as**
+
+A single-user application for medical contracting.
+
+**Grew to include**
+
+Integration with:
+
+- Medical authorizations.
+- Contact center operations.
+- Administrative areas.
+
+**Became important at scale**
+
+The system evolved into an important communication platform used nationally.
+
+The implementation MUST NOT invent:
+
+- Numerical metrics.
+- Dates.
+- Performance statistics.
+- Unsupported technical details.
+
+# 11. The AI Chapter — 05
+
+The AI Chapter MUST communicate the developer's transition toward Artificial
+Intelligence.
+
+It MUST frame AI as an extension of software engineering rather than as a
+replacement for software engineering.
+
+The section MUST communicate:
+
+- Human intelligence and artificial intelligence.
+- Practical experimentation.
+- Chatbots.
+- LLMs.
+- RAG.
+- AI applications.
+
+The visual treatment MUST follow the approved mockup's blue-to-purple
+technical visual language.
+
+A subtle abstract technological field or wave MAY be implemented using SVG
+or CSS.
+
+The AI Chapter MUST NOT contain the previously rejected large neural-network
+head illustration.
+
+The Hero neural face and the AI Chapter visual are separate requirements.
+
+The AI Chapter visual MUST remain subordinate to the typography and content.
+
+# 12. My Philosophy — 06
+
+The final section MUST strongly emphasize:
+
+> I don't just want to build AI. I want to build useful systems with AI.
+
+The section MAY include:
+
+> Always learning. Always building.
+
+The statement MUST function as a visual conclusion to the narrative.
+
+Typography and negative space MUST be used to give the statement significant
+visual importance.
+
+# 13. Visual Design Tokens
+
+The About feature MUST consume the existing global design-token system.
+
+It MUST NOT create a parallel design-token architecture.
+
+Feature-specific values MUST be exposed through CSS custom properties when
+they represent reusable visual characteristics.
+
+The implementation SHOULD reconcile feature-level values with the existing
+global tokens defined in instructions.frontend.md.
+
+The following token categories MUST be considered during planning:
+
+**Color**
+- Background.
+- Surface.
+- Surface elevated.
+- Primary text.
+- Secondary text.
+- Muted text.
+- Blue accent.
+- Purple accent.
+- Border.
+- Neural line.
+- Neural node.
+- Neural glow.
+  
+**Typography**
+
+- Hero display size.
+- Section title size.
+- Card/feature title size.
+- Body size.
+- Label size.
+- Letter spacing.
+  
+**Spacing**
+
+- Page horizontal padding.
+- Section vertical spacing.
+- Hero spacing.
+- Card padding.
+- Timeline spacing.
+- Diagram spacing.
+- Shape
+- Border radius.
+- Border width.
+- Icon container radius.
+  
+**Effects**
+- Neural glow.
+- Accent glow.
+- Controlled gradient.
+- Surface transparency.
+
+Exact implementation values belong to the execution plan and implementation
+and MUST remain consistent with the project's global design system.
+
+# 14.  Responsive Behavior
+
+The approved mockup represents the primary desktop composition.
+
+The mobile and tablet layouts MUST preserve:
+
+- Visual hierarchy.
+- Content order.
+- Typography hierarchy.
+- Dark visual environment.
+- Accent system.
+- Neural visual identity.
+- Architectural language.
+
+The implementation MUST NOT attempt pixel-for-pixel reproduction of the
+desktop mockup on small screens.
+
+**On smaller screens:**
+
+- The Hero MAY become single-column.
+- The neural visualization MAY move below or beside the Hero text.
+- The Engineering Journey MAY become a vertical timeline.
+- The Project Growth diagram MAY become a vertical flow.
+- Card/surface widths MUST adapt.
+- Typography MUST scale responsively.
+- Horizontal scrolling MUST NOT occur.
+
+The page MUST remain usable on mobile, tablet, and desktop.
+
+# 15. Functional Requirements
+- FR-001: The About page MUST be available at /about.
+- FR-002: The page MUST be reachable through the existing global navigation.
+- FR-003: The page MUST use the existing application shell.
+- FR-004: The page MUST be one continuous vertically scrolling document.
+- FR-005: The six required sections MUST appear in the specified order.
+- FR-006: The page MUST establish professional identity immediately.
+- FR-007: The page MUST communicate more than 10 years of software development experience.
+- FR-008: The page MUST communicate .NET and Angular experience.
+- FR-009: The page MUST communicate API, integration, distributed systems, and modernization experience.
+- FR-010: The page MUST communicate practical experimentation with Chatbots, LLMs, and RAG.
+- FR-011: The page MUST communicate the goal of building useful systems with AI.
+- FR-012: The page MUST complement rather than reproduce the CV.
+- FR-013: The page MUST use the approved visual direction.
+- FR-014: The page MUST consume the existing global design tokens.
+- FR-015: The page MUST preserve the approved typography hierarchy.
+- FR-016: The page MUST support subtle progressive enhancement.
+- FR-017: The page MUST respect reduced-motion preferences.
+- FR-018: The page MUST use semantic HTML.
+- FR-019: The page MUST maintain a meaningful heading hierarchy.
+- FR-020: The page MUST remain responsive.
+- FR-021: The page MUST avoid horizontal scrolling.
+- FR-022: The page MUST work under the GitHub Pages /portfolio/ base path.
+- FR-023: The feature MUST use the existing Angular standalone architecture.
+- FR-024: The feature MUST NOT introduce new frontend dependencies.
+- FR-025: The implementation MUST remain type-safe.
+- FR-026: The feature MUST live under portfolio_app/src/app/features/about/.
+- FR-027: The feature MUST use the existing router.
+- FR-028: The feature MUST NOT create a parallel design system.
+- FR-029: The feature MUST not use unjustified any.
+- FR-030: The feature MUST NOT require backend APIs or external data.
+- FR-031: The Hero MUST use a desktop two-column composition.
+- FR-032: The Hero MUST contain the neural face visualization.
+- FR-033: The Engineering Journey MUST use a horizontal visual timeline on desktop.
+- FR-034: The Project Growth section MUST include a visual growth diagram.
+- FR-035: The AI Chapter MUST NOT use the rejected large neural-head illustration.
+- FR-036: The About page MUST preserve the visual composition represented by the approved mockup.
+  
+# 16.  Accessibility and Motion
+- FR-037: All interactive elements MUST be keyboard accessible.
+- FR-038: Interactive elements MUST have visible focus states.
+- FR-039: Decorative SVG graphics MUST be hidden from assistive technology where appropriate.
+- FR-040: The page MUST NOT rely on color alone to communicate meaning.
+- FR-041: Content MUST remain understandable with animations disabled.
+- FR-042: prefers-reduced-motion: reduce MUST disable or substantially reduce non-essential animation.
+- FR-043: SVG visualizations MUST NOT interfere with screen-reader navigation.
+- FR-044: Text contrast MUST satisfy the project's accessibility baseline.
+  
+# 17.  Technical Constraints
+- FR-045: The feature MUST live under portfolio_app/src/app/features/about/.
+- FR-046: Angular standalone architecture MUST be used.
+- FR-047: No new frontend dependency may be added.
+- FR-048: No third-party animation library may be added.
+- FR-049: No third-party graphics or visualization library may be added.
+- FR-050: SVG and CSS are the preferred technologies for custom visual elements.
+- FR-051: The neural face MUST NOT be a raster image.
+- FR-052: The implementation MUST remain compatible with GitHub Pages.
+- FR-053: The implementation MUST use the existing project styling architecture.
+- FR-054: The feature MUST avoid unnecessary abstractions.
+  
+# 18. Component Structure Constraint
+
+The feature SHOULD remain simple and maintainable.
+
+The implementation SHOULD use one primary about-page.component containing
+the six sections.
+
+Feature-internal sub-components SHOULD NOT be introduced unless the
+implementation identifies a concrete reason such as:
+
+- Independent behavior.
+- Significant complexity.
+- Reusability.
+- Maintainability.
+
+The neural SVG MAY remain inside the About page implementation if extracting
+it would add unnecessary architectural complexity.
+
+The implementation MUST NOT create components merely to mirror every visual
+section.
+
+# 19. Content Strategy
+
+The page MUST use a concise hybrid content strategy.
+
+Overall visible content SHOULD remain approximately within 300–400 words.
+
+The content volume includes:
+
+- Headings.
+- Section labels.
+- Body paragraphs.
+- Descriptors.
+- Supporting descriptions.
+
+Decorative or hidden text is excluded.
+
+The healthcare project narrative may receive more textual space than other
+sections.
+
+The About page MUST complement the CV rather than replace it.
+
+# 20. User Scenarios
+**User Story 1 — Understand the professional profile**
+
+As a recruiter, employer, collaborator, or academic contact, I want to
+quickly understand the developer's professional background, technical
+evolution, and current AI direction.
+
+Independent Test:
+
+A visitor can open /about and understand the developer's background,
+progression, and AI direction without opening the CV.
+
+**User Story 2 — Understand the transition toward AI**
+
+As a technical recruiter or employer, I want to understand why the developer
+is moving from software engineering toward AI.
+
+Independent Test:
+
+A visitor can identify the connection between software engineering,
+systems experience, modernization, and AI experimentation.
+
+**User Story 3 — See evidence of real-world impact**
+
+As a recruiter or employer, I want to see a concrete example of a system that
+grew beyond its original purpose.
+
+**Independent Test:**
+
+A visitor can understand how the healthcare application evolved from a
+single-user application into a nationally used communication platform.
+
+# 21. Visual Acceptance Criteria
+
+The implementation MUST NOT be considered visually complete if any of the
+following occur:
+
+- The desktop Hero becomes a generic single-column layout.
+- The Hero headline becomes visually small.
+- The neural face becomes a small decorative icon.
+- The neural visualization becomes a generic particle sphere or abstract mesh.
+- The Engineering Journey becomes a generic card grid.
+- The horizontal timeline relationship is lost on desktop.
+- The Project Growth diagram is replaced entirely by plain text.
+- The AI Chapter loses its blue-to-purple technical visual language.
+- Architectural lines are removed from major visual structures.
+- Cards/surfaces become visually dominant over the narrative.
+- The page resembles a generic dashboard.
+- The page resembles a generic resume.
+- The page resembles a documentation page.
+- The visual hierarchy of the approved mockup is lost.
+- The blue/purple accent system is substantially reduced.
+- The large negative-space composition is lost.
+- The Hero neural visualization is removed.
+- The implementation reproduces only the content but not the composition.
+
+The implementation MUST visually communicate the same design concept as the
+approved mockup before the feature can be considered complete.
+
+# 22. Success Criteria
+- SC-001: /about is accessible through the existing navigation.
+- SC-002: All six sections appear in the correct order.
+- SC-003: The visitor can understand the developer's engineering
+- background and AI direction without reading the CV.
+- SC-004: The Engineering Journey clearly communicates the five-stage
+- progression.
+- SC-005: The healthcare project communicates its evolution from a
+- single-user application to a nationally used multi-area system.
+- SC-006: The AI Chapter communicates AI as an extension of software
+- engineering.
+- SC-007: The final philosophy statement is visually emphasized.
+- SC-008: The page visually follows the approved mockup's composition.
+- SC-009: The Hero contains the neural face visualization.
+- SC-010: The Engineering Journey uses a visual timeline on desktop.
+- SC-011: The Project Growth section contains a visual architecture
+- diagram.
+- SC-012: The page remains responsive.
+- SC-013: The page remains accessible without animation.
+- SC-014: No new frontend dependencies are introduced.
+- SC-015: The page remains compatible with GitHub Pages.
+
+# 23. Clarifications
+
+The following decisions are approved and MUST be preserved unless changed
+through the project's clarification workflow.
+
+  # | Topic | Decision |
+ ---|---|---|
+ 1 | Canonical route | /about
+ 2 |Page structure	One | continuous scrolling page
+ 3 | Engineering Journey interaction	|Static content + subtle scroll entrance + progressive timeline activation + optional hover highlight
+4	|Content strategy	|Concise overall content with a more detailed healthcare project narrative
+5	|Engineering Journey animation	|Intersection Observer + CSS @keyframes
+6	|Component structure	|Single primary About page component unless complexity justifies extraction
+7	|Content word count	|Approximately 300–400 visible words
+8	|Section visual treatment	|Preserve approved mockup composition; use surfaces/cards only where represented by the mockup
+9	|Project Growth structure	|Started as → Grew to include → Became important at scale
+10	|Neural Hero	|SVG-based human profile neural network
+11	|Neural animation	|Subtle and restrained; reduced motion required
+12	|AI Chapter visual	|Subtle technical field/wave; no large neural-head illustration
+13	|Visual reference	|mockups/about-me-approved.png is the approved visual target
+
+# 24. Out of Scope
 
 - Full CV implementation.
 - Projects feature.
@@ -411,51 +843,32 @@ As a recruiter or employer, I want to see a concrete example of a system that ev
 - Database integration.
 - Analytics.
 - New frontend dependencies.
-- Large vector or neural-network artwork in the AI Chapter.
+- Third-party animation libraries.
+- Third-party visualization libraries.
+- Large neural-head artwork in the AI Chapter.
 
-## 9. Acceptance Criteria
+# 25. Expected Result
 
-- **AC-001**: The About page is available at `/about` and is reachable through the existing global navigation.
-- **AC-002**: The page is implemented as one continuous vertical scrolling experience without mandatory scroll snapping.
-- **AC-003**: All six approved sections appear in the correct order.
-- **AC-004**: A visitor can understand the developer's software engineering background and current AI direction without opening the CV.
-- **AC-005**: The Engineering Journey shows all five approved stages and communicates the evolution from application development to AI exploration.
-- **AC-006**: The Engineering Journey supports subtle entrance, scroll, and hover enhancement without requiring interaction to understand content.
-- **AC-007**: The healthcare project clearly communicates progression from a single-user application into a nationally used system connecting multiple organizational areas.
-- **AC-008**: The AI Chapter communicates the transition toward AI, LLMs, and RAG without using the large vector/neural-network graphic.
-- **AC-009**: The page ends with the required philosophy statement.
-- **AC-010**: The feature uses the existing portfolio design system and does not introduce an independent visual language.
-- **AC-011**: The complete page is usable on mobile, tablet, and desktop without horizontal scrolling.
-- **AC-012**: The page satisfies the project's accessibility baseline requirements, including semantic HTML, keyboard accessibility, visible focus states, contrast, and reduced-motion support.
-- **AC-013**: All non-essential animation is disabled or substantially reduced when `prefers-reduced-motion: reduce` is active.
-- **AC-014**: No new frontend dependency is added for this feature.
-- **AC-015**: The feature contains no unjustified `any` usage.
-- **AC-016**: Implementation passes the project's configured ESLint and production build validation.
-- **AC-017**: The `/about` route works correctly under the GitHub Pages repository base path.
+A polished, accessible, responsive About Me page presenting the developer as:
 
-## 10. Clarifications
+Software Engineer → Systems Builder → Modernization & Integration → AI Explorer
 
-The following decisions are part of the approved feature direction and must be preserved unless changed through the project's clarification workflow.
+The result MUST feel like a natural extension of the existing portfolio.
 
-| # | Topic | Decision |
-|---|---|---|
-| 1 | Canonical route | `/about` |
-| 2 | Page structure | One continuous scrolling page |
-| 3 | Engineering Journey interaction | Hybrid: static content + subtle scroll entrance + progressive timeline activation + hover highlight; no click or accordion |
-| 4 | Content strategy | Hybrid: concise overall content with a more detailed healthcare project narrative |
+The approved mockup MUST be recognizable in the final implementation through
+its:
 
-### Session 2026-08-18
+- Composition.
+- Typography hierarchy.
+- Visual density.
+- Neural Hero visualization.
+- Engineering timeline.
+- Architectural project diagram.
+- AI visual treatment.
+- Blue/purple accents.
+- Negative space.
+- Subtle luminous details.
+- Restrained microanimations.
 
-- Q: Engineering Journey — Animation strategy mechanism → A: Intersection Observer + CSS (`@keyframes` with dynamic class activation)
-- Q: Component structure strategy → A: Single monolithic component (all sections in `about-page.component.ts/html/scss`)
-- Q: Content word count interpretation → A: All visible text (headings, labels, body, descriptors; excludes decorative/hidden text only)
-- Q: Section visual treatment and layout pattern → A: Full-width semantic sections (no card/surface pattern; clean, minimal, full-width `<section>` blocks with generous padding)
-- Q: Project That Grew narrative structure → A: Three-part explicit structure: (1) Started as, (2) Grew to include, (3) Became important at scale
-
-## 10. Expected Result
-
-A polished, accessible, responsive About Me page that presents the developer as:
-
-Software Engineer → Systems Builder → Modernization & Integration → AI Explorer.
-
-The result should feel like a natural extension of the existing portfolio rather than a standalone microsite. The implementation must remain simple, maintainable, dependency-light, and compatible with the project's existing Angular and GitHub Pages foundation.
+The implementation MUST remain simple, maintainable, dependency-light, and
+compatible with Angular and GitHub Pages.

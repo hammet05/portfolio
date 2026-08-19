@@ -1,155 +1,179 @@
 # Tasks: About Me
 
-**Input**: Design documents from `/specs/003-about-me/`
+**Feature:** 003-about-me  
+**Branch:** `feature/003-about`  
+**Specification:** `specs/003-about-me/spec.md`  
+**Plan:** `specs/003-about-me/plan.md`
 
-**Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/
+## Phase 1 — Feature Foundation
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing.
+- [X] T001 Verify Angular standalone architecture and About route integration.
+- [X] T002 Create the About feature directory.
+- [X] T003 Create `about-page.component.ts`.
+- [X] T004 Create `about-page.component.html`.
+- [X] T005 Create `about-page.component.scss`.
+- [X] T006 Register the `/about` route with the existing router.
 
-## Phase 1: Setup (Shared Infrastructure)
+## Phase 2 — Page Structure
 
-**Purpose**: Initialize the feature structure and route entry points required by the About page.
+- [X] T007 Create the six-section semantic page structure in the required order.
+- [X] T008 Add the About Me Hero.
+- [X] T009 Add Engineering Journey.
+- [X] T010 Add What I Build.
+- [X] T011 Add A Project That Grew.
+- [X] T012 Add The AI Chapter.
+- [X] T013 Add My Philosophy.
 
-- [X] T001 Create feature directory and component skeleton in portfolio_app/src/app/features/about/
-- [X] T002 [P] Add the `/about` route to portfolio_app/src/app/app.routes.ts
-- [X] T003 [P] Mark the About link as implemented in portfolio_app/src/app/layout/site-header/site-header.component.ts
+## Phase 3 — Hero Visual Design
 
----
+- [X] T014 Implement the desktop two-column Hero layout.
+- [X] T015 Implement the approved Hero headline hierarchy.
+- [X] T016 Implement the supporting Hero description.
+- [X] T017 Implement the three professional descriptors.
+- [X] T018 Implement the Hero architectural accent line.
+- [X] T019 Implement responsive Hero behavior.
 
-## Phase 2: Foundational (Blocking Prerequisites)
+## Phase 4 — Neural Face Visualization
 
-**Purpose**: Establish the static content model and animation foundation before story implementation.
+- [X] T020 Create the neural face SVG.
+- [X] T021 Create profile geometry.
+- [X] T022 Create facial neural nodes.
+- [X] T023 Create neural connections.
+- [X] T024 Create lower-density peripheral nodes and connections.
+- [X] T025 Implement blue luminous treatment.
+- [X] T026 Implement controlled blue-to-purple accent treatment in the neural SVG.
+- [X] T027 Implement focal-node glow.
+- [X] T028 Implement restrained neural animation with reduced-motion fallback.
+- [X] T029 Add reduced-motion handling.
+- [X] T030 Mark the SVG decorative with `aria-hidden`.
+- [ ] T031 Verify the visualization at desktop and tablet sizes. **Pending: requires browser screenshots at both viewports.**
 
-- [X] T004 Create static TypeScript interfaces and readonly content model in portfolio_app/src/app/features/about/about-page.component.ts
-- [X] T005 [P] Add the narrative content definitions for all six sections in portfolio_app/src/app/features/about/about-page.component.ts
-- [X] T006 [P] Add Intersection Observer setup and reduced-motion handling in portfolio_app/src/app/features/about/about-page.component.ts
-- [X] T006a [P] Implement the neural face SVG visualization in the About Me section with animations (nodes, connections, luminous accents) in portfolio_app/src/app/features/about/about-page.component.html and about-page.component.scss
+## Phase 5 — Engineering Journey
 
-**Checkpoint**: Foundation ready - story implementation can begin in parallel.
+- [X] T032 Implement five journey stages.
+- [X] T033 Implement stage numbers.
+- [X] T034 Implement stage titles.
+- [X] T035 Add existing Lucide icon treatment to the stage items.
+- [X] T036 Implement the horizontal architectural timeline line.
+- [X] T037 Implement timeline nodes.
+- [X] T038 Implement Intersection Observer activation behavior.
+- [X] T039 Implement CSS entrance and activation animations.
+- [X] T040 Add reduced-motion handling.
+- [X] T041 Implement the dedicated mobile vertical timeline adaptation.
+- [X] T042 Keep content readable without animation.
 
----
+## Phase 6 — What I Build
 
-## Phase 3: User Story 1 - Understand the professional profile (Priority: P1) 🎯 MVP
+- [X] T043 Implement the capability structure.
+- [X] T044 Add Enterprise Systems content.
+- [X] T045 Add Integration & APIs content.
+- [X] T046 Add Automation content.
+- [X] T047 Add Modernization content.
+- [X] T048 Implement icon and typography hierarchy.
+- [X] T049 Implement restrained surface treatment.
 
-**Goal**: Deliver the first impression of the About page: professional identity, engineering evolution, and value proposition.
+## Phase 7 — Project That Grew
 
-**Independent Test**: A user can open `/about`, read the primary heading and journey sections, and understand the developer's progression from software engineering to AI exploration without reading a CV.
+- [X] T050 Implement the three narrative stages.
+- [X] T051 Add the healthcare project narrative.
+- [X] T052 Implement the project growth diagram.
+- [X] T053 Add Medical Contracting as the start node.
+- [X] T054 Add Integration Layer as the central node.
+- [X] T055 Add the three destination nodes.
+- [X] T056 Add architectural connections between diagram nodes.
+- [X] T057 Keep the diagram readable without animation.
+- [X] T058 Implement responsive diagram behavior.
 
-### Implementation for User Story 1
+## Phase 8 — AI Chapter
 
-- [X] T007 [US1] Implement the intro section markup and descriptors in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T008 [US1] Implement the Engineering Journey section structure and five approved stages in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T009 [US1] Implement the What I Build section and supporting content in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T010 [US1] Implement the responsive layout and typography styles for the intro, engineering journey, and focus sections in portfolio_app/src/app/features/about/about-page.component.scss
-- [X] T011 [US1] Implement the initial motion hooks and CSS entrance animation state in portfolio_app/src/app/features/about/about-page.component.scss
+- [X] T059 Implement the AI Chapter narrative.
+- [X] T060 Add Chatbots capability.
+- [X] T061 Add LLMs capability.
+- [X] T062 Add RAG capability.
+- [X] T063 Add AI Applications capability.
+- [X] T064 Add the restrained technical field visual.
+- [X] T065 Apply blue-to-purple visual language to the AI field.
+- [X] T066 Verify the rejected neural-head graphic is not used.
 
-**Checkpoint**: User Story 1 should be fully visible and testable independently.
+## Phase 9 — Philosophy
 
----
+- [X] T067 Implement the philosophy statement.
+- [X] T068 Emphasize the approved primary statement.
+- [X] T069 Add “Always learning. Always building.”
+- [X] T070 Implement the conclusion hierarchy.
 
-## Phase 4: User Story 2 - Understand the transition toward AI (Priority: P1)
+## Phase 10 — Responsive Design
 
-**Goal**: Make the real-world impact and AI transition explicit and easy to understand.
+- [X] T071 Implement desktop spacing and composition.
+- [X] T072 Implement tablet layout adaptation in CSS.
+- [X] T073 Implement mobile Hero adaptation in CSS.
+- [ ] T074 Verify the Engineering Journey mobile vertical layout. **Pending: browser verification and dedicated vertical treatment.**
+- [X] T075 Implement responsive Project Growth diagram layout.
+- [ ] T076 Verify no horizontal overflow at supported viewports. **Pending: requires browser viewport checks.**
 
-**Independent Test**: A visitor can read the project story and AI Chapter and identify how systems experience supports the move into AI without needing additional context.
+## Phase 11 — Accessibility
 
-### Implementation for User Story 2
+- [X] T077 Verify heading hierarchy in the template.
+- [X] T078 Verify semantic section structure.
+- [X] T079 Verify keyboard-safe native page structure.
+- [X] T080 Preserve visible focus behavior from the global styles.
+- [X] T081 Verify decorative SVG accessibility handling.
+- [ ] T082 Verify text contrast with an accessibility tool. **Pending: no contrast analyzer was run.**
+- [X] T083 Keep the page understandable without animation.
+- [X] T084 Add `prefers-reduced-motion` handling.
 
-- [X] T012 [P] [US2] Implement the A Project That Grew narrative in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T013 [US2] Implement the AI Chapter section and supporting text in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T014 [US2] Validate the total visible text count stays within the 300–400 word target in portfolio_app/src/app/features/about/about-page.component.ts
+## Phase 12 — GitHub Pages
 
-**Checkpoint**: User Stories 1 and 2 should both work independently and read as a coherent narrative.
+- [ ] T085 Verify `/about` under the `/portfolio/` base path. **Pending: deployment/base-path runtime check was not run.**
+- [X] T086 Use local inline SVG and no external static asset paths.
+- [X] T087 Preserve internal navigation through the existing shell/router.
 
----
+## Phase 13 — Visual Validation
 
-## Phase 5: User Story 3 - See evidence of real-world impact and close the narrative (Priority: P1)
+- [ ] T088 Compare Hero composition against the approved mockup. **Pending: mockup was inspected, but no rendered app screenshot was captured.**
+- [ ] T089 Compare Hero typography scale. **Pending: requires rendered screenshot comparison.**
+- [ ] T090 Compare neural face scale and density. **Pending: requires rendered screenshot comparison.**
+- [ ] T091 Compare Engineering Journey composition. **Pending: requires rendered screenshot comparison.**
+- [ ] T092 Compare What I Build composition. **Pending: requires rendered screenshot comparison.**
+- [ ] T093 Compare Project Growth diagram. **Pending: requires rendered screenshot comparison.**
+- [ ] T094 Compare AI Chapter visual treatment. **Pending: requires rendered screenshot comparison.**
+- [ ] T095 Compare Philosophy hierarchy. **Pending: requires rendered screenshot comparison.**
+- [ ] T096 Verify spacing and negative-space distribution. **Pending: requires rendered screenshot comparison.**
+- [ ] T097 Verify blue/purple accent relationships. **Pending: current implementation is not fully purple-accented and needs visual review.**
+- [X] T098 Implement architectural lines and subtle borders.
+- [ ] T099 Verify the page does not resemble a generic dashboard or resume. **Pending: requires final rendered visual review.**
 
-**Goal**: Finish the story with a clear closing philosophy that reinforces the professional direction.
+## Phase 14 — Quality Validation
 
-**Independent Test**: A user can reach the final section and clearly understand the developer's intent to build useful systems with AI.
+- [X] T100 Run TypeScript and production build validation. `npm run build` passes.
+- [X] T101 Run configured ESLint validation. `npm run lint` passes.
+- [X] T102 Verify the `/about` route is registered in `app.routes.ts`.
+- [ ] T103 Verify responsive behavior at runtime. **Pending: requires browser viewport checks.**
+- [ ] T104 Verify accessibility baseline at runtime. **Pending: no browser accessibility audit was run.**
+- [ ] T105 Verify reduced-motion behavior at runtime. **Pending: CSS rule exists, but no browser preference test was run.**
+- [X] T106 Verify no new frontend dependencies were introduced.
+- [X] T107 Verify no unjustified `any` usage was introduced.
+- [ ] T108 Verify GitHub Pages compatibility at runtime. **Pending: deployment/runtime check was not run.**
 
-### Implementation for User Story 3
+## Definition of Done
 
-- [X] T015 [US3] Implement the My Philosophy closing statement in portfolio_app/src/app/features/about/about-page.component.html
-- [X] T016 [US3] Confirm the final section preserves the approved wording and visual emphasis in portfolio_app/src/app/features/about/about-page.component.scss
+- [X] All six sections are implemented.
+- [ ] The Hero fully matches the approved composition. **Pending visual screenshot comparison.**
+- [X] The neural face is implemented as SVG.
+- [ ] The Engineering Journey fully matches the intended timeline treatment. **Pending icons, animation, and mobile vertical adaptation.**
+- [X] The Project Growth section contains an architecture diagram.
+- [ ] The AI Chapter fully matches the approved visual language. **Pending purple field treatment and visual comparison.**
+- [X] Responsive CSS is implemented.
+- [ ] Accessibility requirements are fully runtime-verified. **Pending browser audit.**
+- [X] Reduced-motion CSS handling is implemented.
+- [X] No new frontend dependency is introduced.
+- [ ] GitHub Pages routing is runtime-verified. **Pending deployment/base-path check.**
+- [X] Build and configured quality checks pass.
+- [ ] Visual comparison against the approved mockup is complete. **Pending rendered app screenshots.**
 
-**Checkpoint**: All story requirements are in place and independently reviewable.
+## Verification
 
----
-
-## Phase 6: Polish & Cross-Cutting Concerns
-
-**Purpose**: Validate the feature as a complete portfolio page across quality, accessibility, and deployment constraints.
-
-- [X] T017 [P] Run ESLint and production build validation for portfolio_app/
-- [X] T018 [P] Manually validate the About page at 375px, 768px, 1024px, and 1280px in the browser
-- [X] T019 [P] Verify reduced-motion behavior and keyboard focus visibility in portfolio_app/src/app/features/about/about-page.component.scss
-- [X] T020 Confirm the `/about` route works correctly under the GitHub Pages base path and navigation highlight behavior
-
----
-
-## Dependencies & Execution Order
-
-### Phase Dependencies
-
-- **Phase 1: Setup**: No dependencies; starts immediately
-- **Phase 2: Foundational**: Depends on Phase 1; blocks all story work
-- **Phase 3+: User Story phases**: Depend on Phase 2 completion
-- **Phase 6: Polish**: Depends on all story phases being complete
-
-### User Story Dependencies
-
-- **User Story 1 (P1)**: Can start after Foundational; independent from other stories
-- **User Story 2 (P1)**: Can start after Foundational; independent from other stories
-- **User Story 3 (P1)**: Can start after Foundational; independent from other stories
-
-### Parallel Opportunities
-
-- T002 and T003 can run in parallel after Setup begins.
-- T005 and T006 can run in parallel after the foundational model is established.
-- Story implementation can proceed in parallel once the foundation is complete, provided the same component file is coordinated.
-- Validation tasks T017, T018, and T019 can run in parallel once the page is implemented.
-
----
-
-## Implementation Strategy
-
-### MVP First
-
-1. Complete Phase 1: Setup
-2. Complete Phase 2: Foundational
-3. Complete User Story 1 and validate it independently
-4. Finish User Story 2 and User Story 3
-5. Run final validation and polish tasks
-
-### Incremental Delivery
-
-- The first delivered increment is the About page entry route and hero narrative.
-- The second increment adds the engineering and AI transition narrative.
-- The final increment closes the page with the philosophy statement and validation pass.
-
----
-
-## Task Count Summary
-
-- Total tasks: 20
-- Phase 1: 3 tasks
-- Phase 2: 3 tasks
-- Phase 3: 5 tasks
-- Phase 4: 3 tasks
-- Phase 5: 2 tasks
-- Phase 6: 4 tasks
-- User Story 1 tasks: 5
-- User Story 2 tasks: 3
-- User Story 3 tasks: 2
-
-## Validation Checklist
-
-All tasks follow the required checklist format:
-
-- [ ] Checkbox at the start of each task
-- [ ] Sequential numeric Task ID
-- [ ] [P] only used for parallelizable tasks
-- [ ] Story labels applied only to story phases
-- [ ] File paths included for each task description
+- `npm run build`: passed with no errors or warnings.
+- `npm run lint`: passed with “All files pass linting.”
+- `npx ng build --base-href /portfolio/`: passed.
+- Local server checks: `/` returned HTTP 200 and `/about` returned HTTP 200.

@@ -4,6 +4,8 @@
       <div class="intro-text">
         <p class="eyebrow">01 / ABOUT ME</p>
         <h1>From building software to exploring intelligence.</h1>
+        <p class="hero-description">{{ heroDescription }}</p>
+        <div class="architectural-accent" aria-hidden="true"></div>
 
         <div class="descriptor-list" aria-label="Professional descriptors">
           @for (descriptor of descriptors; track descriptor) {
@@ -25,6 +27,10 @@
               <stop offset="0%" style="stop-color: var(--color-primary); stop-opacity: 0.4" />
               <stop offset="100%" style="stop-color: var(--color-primary); stop-opacity: 0" />
             </radialGradient>
+            <linearGradient id="neuralAccent" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" style="stop-color: var(--color-primary)" />
+              <stop offset="100%" style="stop-color: #934cff" />
+            </linearGradient>
             <filter id="softGlow">
               <feGaussianBlur stdDeviation="2" result="coloredBlur" />
               <feMerge>
@@ -38,7 +44,7 @@
           <circle cx="150" cy="200" r="180" fill="url(#neuralGlow)" />
 
           <!-- Profile outline (facial structure) -->
-          <g stroke="var(--color-primary)" stroke-width="1.5" fill="none" opacity="0.6">
+          <g stroke="url(#neuralAccent)" stroke-width="1.5" fill="none" opacity="0.6">
             <!-- Head outline -->
             <path d="M 150 80 Q 180 85 190 120 Q 195 150 190 180 Q 185 210 170 230 Q 150 250 130 240" />
             <!-- Jaw line -->
@@ -130,6 +136,14 @@
     <div class="journey-grid">
       @for (stage of stages; track stage.id) {
         <article class="journey-item" data-animate>
+          <span class="stage-number">{{ stage.orderNumber }}</span>
+          @switch (stage.icon) {
+            @case ('monitor') { <svg lucideMonitor class="about-icon" size="24"></svg> }
+            @case ('globe') { <svg lucideGlobe class="about-icon" size="24"></svg> }
+            @case ('network') { <svg lucideNetwork class="about-icon" size="24"></svg> }
+            @case ('layers') { <svg lucideLayers class="about-icon" size="24"></svg> }
+            @case ('brain') { <svg lucideBrain class="about-icon" size="24"></svg> }
+          }
           <h2>{{ stage.title }}</h2>
           <p>{{ stage.summary }}</p>
         </article>
@@ -142,6 +156,12 @@
     <div class="focus-grid">
       @for (area of focusAreas; track area.id) {
         <article class="focus-item" data-animate>
+          @switch (area.icon) {
+            @case ('boxes') { <svg lucideBoxes class="about-icon" size="24"></svg> }
+            @case ('link') { <svg lucideLink class="about-icon" size="24"></svg> }
+            @case ('settings') { <svg lucideSettings class="about-icon" size="24"></svg> }
+            @case ('code') { <svg lucideCode class="about-icon" size="24"></svg> }
+          }
           <h2>{{ area.title }}</h2>
           <p>{{ area.detail }}</p>
         </article>
@@ -170,6 +190,20 @@
       <h2>Became important at scale</h2>
       <p>{{ projectStory.becameImportantAt }}</p>
     </div>
+
+    <div class="growth-diagram" aria-label="Project growth architecture diagram" role="img">
+      <div class="diagram-node diagram-start">Medical Contracting</div>
+      <div class="diagram-line diagram-line-main"></div>
+      <div class="diagram-node diagram-core">Integration Layer</div>
+      <div class="diagram-branches" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="diagram-destinations">
+        <div class="diagram-node">Medical Authorizations</div>
+        <div class="diagram-node">Contact Center</div>
+        <div class="diagram-node">Administrative Area</div>
+      </div>
+    </div>
   </section>
 
   <section class="about-section ai-chapter" data-animate>
@@ -185,6 +219,7 @@
         <li>{{ item }}</li>
       }
     </ul>
+    <div class="ai-field" aria-hidden="true"></div>
   </section>
 
   <section class="about-section philosophy" data-animate>

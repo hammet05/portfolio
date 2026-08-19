@@ -1,0 +1,22 @@
+.about-icon{margin-bottom:.75rem;color:var(--color-primary)}
+.journey-item,.about-page [data-animate]{opacity:1;transform:none}
+.about-page [data-animate].in-view{animation:aboutReveal .5s ease both}
+.neural-face .node{animation:aboutPulse 4s ease-in-out infinite}
+.neural-face .connections{animation:aboutFade 5s ease-in-out infinite}
+.neural-face .luminous-node{animation:aboutGlow 3s ease-in-out infinite}
+
+@keyframes aboutReveal{from{opacity:0;transform:translateY(.75rem)}to{opacity:1;transform:none}}
+@keyframes aboutPulse{0%,100%{opacity:.7}50%{opacity:1}}
+@keyframes aboutFade{0%,100%{opacity:.3}50%{opacity:.7}}
+@keyframes aboutGlow{0%,100%{opacity:.6}50%{opacity:1}}
+
+@media (max-width:767px){
+  .engineering-journey .journey-grid{grid-template-columns:1fr;padding-left:1.5rem}
+  .engineering-journey .journey-grid::before{top:0;bottom:0;left:.5rem;right:auto;width:1px;height:auto;background:linear-gradient(var(--color-primary),rgba(147,76,255,.85))}
+  .engineering-journey .journey-item::before{top:1.25rem;left:-1.3rem}
+  .diagram-destinations{grid-template-columns:1fr;width:100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .about-page [data-animate],.neural-face .node,.neural-face .connections,.neural-face .luminous-node{animation:none!important}
+}
