@@ -23,116 +23,259 @@
 
       <div class="neural-viz" aria-hidden="true">
         <svg
-          viewBox="0 0 300 400"
-          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 840 460"
           preserveAspectRatio="xMidYMid meet"
-          class="neural-face"
-        >
-          <!-- Define gradient and filters -->
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          font-family="Arial, Helvetica, sans-serif">
+        
           <defs>
-            <radialGradient id="neuralGlow" cx="35%" cy="45%">
-              <stop offset="0%" style="stop-color: var(--color-primary); stop-opacity: 0.4" />
-              <stop offset="100%" style="stop-color: var(--color-primary); stop-opacity: 0" />
-            </radialGradient>
-            <linearGradient id="neuralAccent" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" style="stop-color: var(--color-primary)" />
-              <stop offset="100%" style="stop-color: #934cff" />
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6"/>
+              <stop offset="100%" stop-color="#b06cff"/>
             </linearGradient>
-            <filter id="softGlow">
-              <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            <linearGradient id="neonEdge" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#2f7bff"/>
+              <stop offset="45%" stop-color="#5aa0ff"/>
+              <stop offset="55%" stop-color="#8f7bff"/>
+              <stop offset="100%" stop-color="#c15cff"/>
+            </linearGradient>
+            <linearGradient id="aiTextGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="55%" stop-color="#e8f2ff"/>
+              <stop offset="100%" stop-color="#ecdfff"/>
+            </linearGradient>
+            <radialGradient id="bgGlow" cx="50%" cy="38%" r="55%">
+              <stop offset="0%" stop-color="#0d141b" stop-opacity="0.9"/>
+              <stop offset="55%" stop-color="#0d141b" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#0d141b" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="blueWash" cx="20%" cy="45%" r="45%">
+              <stop offset="0%" stop-color="#0f1721" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#0f1721" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="purpleWash" cx="82%" cy="40%" r="45%">
+              <stop offset="0%" stop-color="#0f1721" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#0f1721" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="floorGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#5a7dff" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#5a7dff" stop-opacity="0"/>
+            </radialGradient>
+
+            <!-- Caras del chip: oscuras, con leve gradiente -->
+            <linearGradient id="topFaceGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%" stop-color="#1a2340"/>
+              <stop offset="55%" stop-color="#111830"/>
+              <stop offset="100%" stop-color="#1a1638"/>
+            </linearGradient>
+            <linearGradient id="leftFaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#141c36"/>
+              <stop offset="70%" stop-color="#0a0e1e"/>
+              <stop offset="100%" stop-color="#111a3c"/>
+            </linearGradient>
+            <linearGradient id="rightFaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#151134"/>
+              <stop offset="70%" stop-color="#0a0818"/>
+              <stop offset="100%" stop-color="#1c1140"/>
+            </linearGradient>
+
+            <pattern id="dotGrid" width="26" height="26" patternUnits="userSpaceOnUse">
+              <circle cx="1" cy="1" r="1" fill="#0f1721" opacity="0.28"/>
+            </pattern>
+
+            <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
+            <filter id="blurBig" x="-150%" y="-150%" width="400%" height="400%">
+              <feGaussianBlur stdDeviation="12"/>
+            </filter>
+            <filter id="blurMid" x="-150%" y="-150%" width="400%" height="400%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+            <filter id="blurSmall" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="2"/>
+            </filter>
+
+            <!-- Recortes para las caras laterales -->
+            <clipPath id="leftFaceClip">
+              <path d="M314,186 L314,236 Q314,242 336.4,255.1 L397.6,290.9 Q420,304 420,304 L420,242 Q420,242 397.6,228.9 L336.4,193.1 Q314,180 314,186 Z"/>
+            </clipPath>
+            <clipPath id="rightFaceClip">
+              <path d="M526,186 L526,236 Q526,242 503.6,255.1 L442.4,290.9 Q420,304 420,304 L420,242 Q420,242 442.4,228.9 L503.6,193.1 Q526,180 526,186 Z"/>
+            </clipPath>
           </defs>
 
-          <!-- Background glow -->
-          <circle cx="150" cy="200" r="180" fill="url(#neuralGlow)" />
+          <!-- ===== FONDO ===== -->
+          <rect width="840" height="460" fill="var(--color-bg)"/>
+          <rect width="840" height="460" fill="url(#dotGrid)"/>
+          <rect width="840" height="460" fill="url(#blueWash)"/>
+          <rect width="840" height="460" fill="url(#purpleWash)"/>
+          <rect width="840" height="460" fill="url(#bgGlow)"/>
 
-          <!-- Profile outline (facial structure) -->
-          <g stroke="url(#neuralAccent)" stroke-width="1.5" fill="none" opacity="0.6">
-            <!-- Head outline -->
-            <path d="M 150 80 Q 180 85 190 120 Q 195 150 190 180 Q 185 210 170 230 Q 150 250 130 240" />
-            <!-- Jaw line -->
-            <path d="M 130 240 Q 110 235 100 220" />
-            <!-- Nose -->
-            <line x1="150" y1="140" x2="155" y2="175" />
-            <!-- Eye area connections -->
-            <circle cx="165" cy="125" r="8" />
-            <circle cx="140" cy="130" r="6" />
+          <!-- Rayos tipo circuito -->
+          <g stroke-width="1" opacity="0.45">
+            <line x1="420" y1="200" x2="50" y2="25" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="20" y2="150" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="20" y2="300" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="90" y2="410" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="140" y2="450" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="250" y2="10" stroke="#1c3a6b"/>
+            <line x1="420" y1="200" x2="790" y2="25" stroke="#3a1c6b"/>
+            <line x1="420" y1="200" x2="815" y2="145" stroke="#3a1c6b"/>
+            <line x1="420" y1="200" x2="815" y2="300" stroke="#3a1c6b"/>
+            <line x1="420" y1="200" x2="745" y2="415" stroke="#3a1c6b"/>
+            <line x1="420" y1="200" x2="700" y2="450" stroke="#3a1c6b"/>
+            <line x1="420" y1="200" x2="590" y2="10" stroke="#3a1c6b"/>
           </g>
 
-          <!-- Dense node cluster (face region) -->
-          <g class="node-cluster-dense">
-            <!-- Facial region nodes with higher density -->
-            <circle cx="150" cy="100" r="2.5" fill="var(--color-primary)" class="node" />
-            <circle cx="160" cy="110" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="140" cy="115" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="170" cy="120" r="2.5" fill="var(--color-primary)" class="node" />
-            <circle cx="130" cy="125" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="155" cy="135" r="2.5" fill="var(--color-primary)" class="node" />
-            <circle cx="165" cy="125" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="145" cy="145" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="160" cy="155" r="2.5" fill="var(--color-primary)" class="node" />
-            <circle cx="140" cy="160" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="170" cy="150" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="150" cy="170" r="2.5" fill="var(--color-primary)" class="node" />
-            <circle cx="155" cy="190" r="2" fill="var(--color-primary)" class="node" />
-            <circle cx="135" cy="185" r="2" fill="var(--color-primary)" class="node" />
+          <!-- Polvo parpadeante -->
+          <g>
+            <circle cx="100" cy="155" r="1.6" fill="#5a8dff"><animate attributeName="opacity" values="0.15;0.8;0.15" dur="3.4s" repeatCount="indefinite"/></circle>
+            <circle cx="710" cy="135" r="1.6" fill="#b18aff"><animate attributeName="opacity" values="0.8;0.15;0.8" dur="2.7s" repeatCount="indefinite"/></circle>
+            <circle cx="255" cy="345" r="1.4" fill="#5a8dff"><animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/></circle>
+            <circle cx="595" cy="335" r="1.4" fill="#b18aff"><animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.1s" repeatCount="indefinite"/></circle>
+            <circle cx="140" cy="65" r="1.3" fill="#5a8dff"><animate attributeName="opacity" values="0.15;0.6;0.15" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle cx="670" cy="75" r="1.3" fill="#b18aff"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="3.6s" repeatCount="indefinite"/></circle>
+            <circle cx="60" cy="270" r="1.2" fill="#5a8dff"><animate attributeName="opacity" values="0.6;0.15;0.6" dur="3s" repeatCount="indefinite"/></circle>
+            <circle cx="770" cy="240" r="1.2" fill="#b18aff"><animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.8s" repeatCount="indefinite"/></circle>
           </g>
 
-          <!-- Medium density nodes (transition region) -->
-          <g class="node-cluster-medium" opacity="0.8">
-            <circle cx="110" cy="95" r="1.8" fill="var(--color-primary)" class="node" />
-            <circle cx="190" cy="105" r="1.8" fill="var(--color-primary)" class="node" />
-            <circle cx="115" cy="150" r="1.8" fill="var(--color-primary)" class="node" />
-            <circle cx="185" cy="160" r="1.8" fill="var(--color-primary)" class="node" />
-            <circle cx="120" cy="200" r="1.8" fill="var(--color-primary)" class="node" />
-            <circle cx="180" cy="210" r="1.8" fill="var(--color-primary)" class="node" />
+          <!-- ===== RUTAS ===== -->
+          <g fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity="0.85">
+            <path id="pathNet" d="M364,152 L310,101 L175,101 L175,80" stroke="#4d8dff"/>
+            <path id="pathAngular" d="M476,152 L530,101 L655,101 L655,80" stroke="#a366ff"/>
+            <path id="pathApis" d="M318,190 L238,222 L189,222" stroke="#4d8dff"/>
+            <path id="pathRag" d="M522,190 L602,222 L649,222" stroke="#a366ff"/>
           </g>
 
-          <!-- Low density outer nodes (peripheral) -->
-          <g class="node-cluster-sparse" opacity="0.5">
-            <circle cx="90" cy="80" r="1.5" fill="var(--color-primary)" class="node" />
-            <circle cx="210" cy="90" r="1.5" fill="var(--color-primary)" class="node" />
-            <circle cx="95" cy="250" r="1.5" fill="var(--color-primary)" class="node" />
-            <circle cx="205" cy="260" r="1.5" fill="var(--color-primary)" class="node" />
+          <g fill="#0d1220" stroke-width="1.6">
+            <circle cx="310" cy="101" r="3.4" stroke="#4d8dff"/>
+            <circle cx="530" cy="101" r="3.4" stroke="#a366ff"/>
+            <circle cx="238" cy="222" r="3.4" stroke="#4d8dff"/>
+            <circle cx="602" cy="222" r="3.4" stroke="#a366ff"/>
           </g>
 
-          <!-- Connections (edges) between nodes -->
-          <g stroke="var(--color-primary)" stroke-width="0.8" opacity="0.4" fill="none" class="connections">
-            <!-- Dense inner connections -->
-            <line x1="150" y1="100" x2="160" y2="110" />
-            <line x1="150" y1="100" x2="140" y2="115" />
-            <line x1="160" y1="110" x2="170" y2="120" />
-            <line x1="140" y1="115" x2="130" y2="125" />
-            <line x1="170" y1="120" x2="165" y2="125" />
-            <line x1="155" y1="135" x2="160" y2="155" />
-            <line x1="145" y1="145" x2="140" y2="160" />
-            <line x1="160" y1="155" x2="150" y2="170" />
-            <line x1="140" y1="160" x2="135" y2="185" />
-            <line x1="150" y1="170" x2="155" y2="190" />
-            <!-- Medium connections -->
-            <line x1="150" y1="100" x2="110" y2="95" />
-            <line x1="170" y1="120" x2="190" y2="105" />
-            <line x1="155" y1="135" x2="115" y2="150" />
-            <line x1="160" y1="155" x2="185" y2="160" />
-            <line x1="155" y1="190" x2="120" y2="200" />
-            <line x1="150" y1="170" x2="180" y2="210" />
-            <!-- Outer connections -->
-            <line x1="110" y1="95" x2="90" y2="80" />
-            <line x1="190" y1="105" x2="210" y2="90" />
-            <line x1="120" y1="200" x2="95" y2="250" />
-            <line x1="180" y1="210" x2="205" y2="260" />
+          <!-- ===== PARTÍCULAS ===== -->
+          <g filter="url(#glow)">
+            <circle r="3.8" fill="#8fd0ff"><animateMotion dur="2.6s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pathNet"/></animateMotion></circle>
+            <circle r="3.8" fill="#d3b3ff"><animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pathAngular"/></animateMotion></circle>
+            <circle r="3.8" fill="#8fd0ff"><animateMotion dur="2.3s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pathApis"/></animateMotion></circle>
+            <circle r="3.8" fill="#d3b3ff"><animateMotion dur="2.9s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pathRag"/></animateMotion></circle>
           </g>
 
-          <!-- Accent luminous points (white/lighter nodes) -->
-          <g class="luminous-accents">
-            <circle cx="155" cy="135" r="1.2" fill="white" opacity="0.8" class="luminous-node" />
-            <circle cx="165" cy="125" r="1.2" fill="white" opacity="0.7" class="luminous-node" />
-            <circle cx="150" cy="170" r="1.2" fill="white" opacity="0.8" class="luminous-node" />
+          <!-- ================== CHIP 3D ================== -->
+
+          <!-- Resplandor que proyecta sobre el "suelo" -->
+          <ellipse cx="420" cy="310" rx="180" ry="55" fill="url(#floorGlow)" opacity="0.6"/>
+
+          <!-- Anillo giratorio -->
+          <g opacity="0.25">
+            <circle cx="420" cy="200" r="155" fill="none" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="2 10">
+              <animateTransform attributeName="transform" type="rotate" from="0 420 200" to="360 420 200" dur="20s" repeatCount="indefinite"/>
+            </circle>
           </g>
+
+          <!-- CARAS LATERALES (cuerpo del chip) -->
+          <path d="M314,186 L314,236 Q314,242 336.4,255.1 L397.6,290.9 Q420,304 420,304 L420,242 Q420,242 397.6,228.9 L336.4,193.1 Q314,180 314,186 Z" fill="url(#leftFaceGrad)"/>
+          <path d="M526,186 L526,236 Q526,242 503.6,255.1 L442.4,290.9 Q420,304 420,304 L420,242 Q420,242 442.4,228.9 L503.6,193.1 Q526,180 526,186 Z" fill="url(#rightFaceGrad)"/>
+
+          <!-- Ranuras (fins) en las caras laterales -->
+          <g clip-path="url(#leftFaceClip)" stroke="#6fa8ff" stroke-width="2.2" stroke-linecap="round" opacity="0.75" filter="url(#blurSmall)">
+            <line x1="330" y1="216" x2="330" y2="236"/>
+            <line x1="340" y1="222" x2="340" y2="242"/>
+            <line x1="350" y1="228" x2="350" y2="248"/>
+            <line x1="372" y1="241" x2="372" y2="261"/>
+            <line x1="382" y1="247" x2="382" y2="267"/>
+            <line x1="392" y1="253" x2="392" y2="273"/>
+            <line x1="402" y1="259" x2="402" y2="279"/>
+          </g>
+          <g clip-path="url(#rightFaceClip)" stroke="#b98cff" stroke-width="2.2" stroke-linecap="round" opacity="0.75" filter="url(#blurSmall)">
+            <line x1="438" y1="259" x2="438" y2="279"/>
+            <line x1="448" y1="253" x2="448" y2="273"/>
+            <line x1="458" y1="247" x2="458" y2="267"/>
+            <line x1="468" y1="241" x2="468" y2="261"/>
+            <line x1="490" y1="228" x2="490" y2="248"/>
+            <line x1="500" y1="222" x2="500" y2="242"/>
+            <line x1="510" y1="216" x2="510" y2="236"/>
+          </g>
+
+          <!-- BORDE INFERIOR NEÓN (la "V" brillante que define el chip) -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M314,236 Q314,242 336.4,255.1 L397.6,290.9 Q420,304 442.4,290.9 L503.6,255.1 Q526,242 526,236"
+                  stroke="url(#neonEdge)" stroke-width="16" opacity="0.45" filter="url(#blurBig)"/>
+            <path d="M314,236 Q314,242 336.4,255.1 L397.6,290.9 Q420,304 442.4,290.9 L503.6,255.1 Q526,242 526,236"
+                  stroke="url(#neonEdge)" stroke-width="7" opacity="0.8" filter="url(#blurMid)"/>
+            <path d="M314,236 Q314,242 336.4,255.1 L397.6,290.9 Q420,304 442.4,290.9 L503.6,255.1 Q526,242 526,236"
+                  stroke="#eaf2ff" stroke-width="2" opacity="0.9"/>
+          </g>
+
+          <!-- CARA SUPERIOR (cuadrado isométrico con esquinas redondeadas) -->
+          <path d="M336.4,166.9 L397.6,131.1 Q420,118 442.4,131.1 L503.6,166.9 Q526,180 503.6,193.1 L442.4,228.9 Q420,242 397.6,228.9 L336.4,193.1 Q314,180 336.4,166.9 Z"
+                fill="url(#topFaceGrad)"/>
+          <!-- Rim sutil de la cara superior -->
+          <path d="M336.4,166.9 L397.6,131.1 Q420,118 442.4,131.1 L503.6,166.9 Q526,180 503.6,193.1 L442.4,228.9 Q420,242 397.6,228.9 L336.4,193.1 Q314,180 336.4,166.9 Z"
+                fill="none" stroke="#4a5c96" stroke-width="1.2" opacity="0.5"/>
+
+          <!-- DIAMANTE NEÓN INTERIOR -->
+          <g fill="none" stroke-linejoin="round">
+            <path d="M362.2,173.1 L407.8,146.9 Q420,140 432.2,146.9 L477.8,173.1 Q490,180 477.8,186.9 L432.2,213.1 Q420,220 407.8,213.1 L362.2,186.9 Q350,180 362.2,173.1 Z"
+                  stroke="url(#neonEdge)" stroke-width="12" opacity="0.4" filter="url(#blurBig)"/>
+            <path d="M362.2,173.1 L407.8,146.9 Q420,140 432.2,146.9 L477.8,173.1 Q490,180 477.8,186.9 L432.2,213.1 Q420,220 407.8,213.1 L362.2,186.9 Q350,180 362.2,173.1 Z"
+                  stroke="url(#neonEdge)" stroke-width="5" opacity="0.85" filter="url(#blurMid)"/>
+            <path d="M362.2,173.1 L407.8,146.9 Q420,140 432.2,146.9 L477.8,173.1 Q490,180 477.8,186.9 L432.2,213.1 Q420,220 407.8,213.1 L362.2,186.9 Q350,180 362.2,173.1 Z"
+                  stroke="#f0f6ff" stroke-width="1.8" opacity="0.95">
+              <animate attributeName="stroke-opacity" values="0.7;1;0.7" dur="2.8s" repeatCount="indefinite"/>
+            </path>
+          </g>
+
+          <!-- Texto AI -->
+          <text x="420" y="194" text-anchor="middle" font-size="44" font-weight="bold" fill="url(#aiTextGrad)" filter="url(#glow)" letter-spacing="2">AI</text>
+
+          <!-- ===== CONEXIÓN SYSTEMS (dibujada encima del chip para que no la lave el glow) ===== -->
+          <path id="pathSystems" d="M420,304 L420,330 L420,363" fill="none" stroke="#7ea8ff" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="420" cy="330" r="3.6" fill="#0d1220" stroke="#9b7bff" stroke-width="1.8"/>
+          <g filter="url(#glow)">
+            <circle r="3.8" fill="#a9c8ff"><animateMotion dur="2s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#pathSystems"/></animateMotion></circle>
+          </g>
+
+          <!-- ===== BADGES ===== -->
+          <g transform="translate(175,55)">
+            <rect x="-79" y="-24" width="158" height="48" rx="24" fill="#0a0e1c" stroke="#4d8dff" stroke-width="1.6"/>
+            <text x="-56" y="6" text-anchor="middle" font-size="15" font-family="Courier New, monospace" font-weight="bold" fill="#6fb3ff">&lt;/&gt;</text>
+            <text x="-33" y="6" font-size="16" font-weight="bold" fill="#f2f6ff">.NET</text>
+          </g>
+
+          <g transform="translate(655,55)">
+            <rect x="-79" y="-24" width="158" height="48" rx="24" fill="#0a0e1c" stroke="#a366ff" stroke-width="1.6"/>
+            <path d="M-56,-10 L-47,-6.5 L-48.5,4.5 L-56,9 L-63.5,4.5 L-65,-6.5 Z" fill="none" stroke="#c299ff" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M-56,-5.5 L-51,4.5 M-56,-5.5 L-61,4.5 M-58.5,1 L-53.5,1" stroke="#c299ff" stroke-width="1.2" stroke-linecap="round"/>
+            <text x="-33" y="6" font-size="16" font-weight="bold" fill="#f2f6ff">Angular</text>
+          </g>
+
+          <g transform="translate(110,222)">
+            <rect x="-79" y="-24" width="158" height="48" rx="24" fill="#0a0e1c" stroke="#4d8dff" stroke-width="1.6"/>
+            <path d="M-65,3.5 A4.3,4.3 0 0 1 -63,-3.7 A5.3,5.3 0 0 1 -54,-5.8 A4.3,4.3 0 0 1 -47,-1.6 A3.7,3.7 0 0 1 -48,5.8 L-64,5.8 A3.2,3.2 0 0 1 -65,3.5 Z" fill="none" stroke="#6fb3ff" stroke-width="1.7" stroke-linejoin="round"/>
+            <text x="-33" y="6" font-size="16" font-weight="bold" fill="#f2f6ff">APIs</text>
+          </g>
+
+          <g transform="translate(728,222)">
+            <rect x="-79" y="-24" width="158" height="48" rx="24" fill="#0a0e1c" stroke="#a366ff" stroke-width="1.6"/>
+              <g transform="translate(-70,-11)" fill="none" stroke="#c299ff" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+                     <svg lucideBrain class="about-icon" size="24"></svg>
+              </g>
+                  <text x="-33" y="6" font-size="16" font-weight="bold" fill="#f2f6ff">RAG</text>
+              </g>
+              <g transform="translate(420,387)">
+                <rect x="-83" y="-24" width="166" height="48" rx="24" fill="#0a0e1c" stroke="url(#lineGrad)" stroke-width="1.6"/>
+                <polygon points="-58,-8.6 -49.4,-4.3 -58,0 -66.6,-4.3" fill="none" stroke="#8fb8ff" stroke-width="1.3" stroke-linejoin="round"/>
+                <polygon points="-58,0 -49.4,-4.3 -49.4,4.3 -58,8.6" fill="none" stroke="#8fb8ff" stroke-width="1.3" stroke-linejoin="round"/>
+                <polygon points="-58,0 -66.6,-4.3 -66.6,4.3 -58,8.6" fill="none" stroke="#8fb8ff" stroke-width="1.3" stroke-linejoin="round"/>
+                <text x="-37" y="6" font-size="16" font-weight="bold" fill="#f2f6ff">Systems</text>
+              </g>
+
         </svg>
       </div>
     </div>
