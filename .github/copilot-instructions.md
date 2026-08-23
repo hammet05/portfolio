@@ -19,7 +19,7 @@ Before generating or modifying code, consider:
 4. These instructions.
 
 <!-- SPECKIT START -->
-Active plan reference: `.specify/specs/003-about-me/plan.md`
+Active plan reference: `.specify/specs/004-home-hero-redesign/plan.md`
 <!-- SPECKIT END -->
 
 ---
