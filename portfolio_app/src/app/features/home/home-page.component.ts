@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LucideCode2, LucideBox, LucideBrainCircuit } from '@lucide/angular';
+import { LucideBrain, LucideCode2, LucideBox, LucideBrainCircuit, LucideBot, LucideChartNoAxesCombined } from '@lucide/angular';
 interface HeroBadge {
   icon: 'code' | 'box' | 'brain';
   label: string[];
@@ -15,9 +15,9 @@ interface Starts {
 @Component({
   selector: 'app-home-page',
   standalone: true,
+  imports: [LucideBrain, LucideBot, LucideChartNoAxesCombined],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
-  imports: []
+  styleUrl: './home-page.component.scss'
 })
 
 
@@ -26,6 +26,9 @@ export class HomePageComponent implements OnInit {
   readonly LucideCode2 = LucideCode2;
   readonly LucideBox = LucideBox;
   readonly LucideBrainCircuit = LucideBrainCircuit;
+  readonly LucideBrain = LucideBrain;
+  readonly LucideBot = LucideBot;
+  readonly LucideChartNoAxesCombined = LucideChartNoAxesCombined;
 
   readonly badges: HeroBadge[] = [
     { icon: 'code', label: ['Software', 'Engineer'], accent: false },

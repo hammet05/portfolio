@@ -315,64 +315,116 @@
       </div>
     </header>
 
-    <section class="home-section" aria-labelledby="engineering-focus-title">
-      <div class="section-heading">
-        <p class="eyebrow">Engineering Focus</p>
-        <h2 id="engineering-focus-title">Three areas of practice</h2>
+    <section class="home-section engineering-focus" aria-labelledby="engineering-focus-title">
+      <div class="section-heading engineering-focus__heading">
+        <div>
+          <p class="eyebrow">Engineering Focus / 02</p>
+          <h2 id="engineering-focus-title">Three areas of practice</h2>
+        </div>    
       </div>
 
       <div class="focus-grid">
-        <article class="info-card">
-          <h3>Software Engineering</h3>
-          <p>Enterprise applications<br />APIs and backend<br />Angular applications</p>
-          <span class="tech-tag">.NET · C# · Angular</span>
+        <article class="info-card focus-card">
+          <span class="focus-card__number">01</span>
+          <span class="focus-card__category">Software Engineering</span>
+
+          <h3>Build the foundation.</h3>
+
+          <ul class="focus-card__list">
+            <li>Enterprise applications</li>
+            <li>APIs and backend</li>
+            <li>Angular applications</li>
+          </ul>
+
+          <div class="focus-card__footer">
+            <span class="tech-tag">.NET · C# · Angular</span>            
+          </div>
         </article>
 
-        <article class="info-card">
-          <h3>Real-time Systems</h3>
-          <p>Event-driven experiences<br />Live data<br />Distributed interaction</p>
-          <span class="tech-tag">SignalR · APIs</span>
+        <article class="info-card focus-card">
+          <span class="focus-card__number">02</span>
+          <span class="focus-card__category">Real-time Systems</span>
+
+          <h3>Keep systems moving.</h3>
+
+          <ul class="focus-card__list">
+            <li>Event-driven experiences</li>
+            <li>Live data</li>
+            <li>Distributed interaction</li>
+          </ul>
+
+          <div class="focus-card__footer">
+            <span class="tech-tag">SignalR · APIs</span>          
+          </div>
         </article>
 
-        <article class="info-card">
-          <h3>Applied AI</h3>
-          <p>LLM applications<br />RAG experiments<br />Intelligent systems</p>
-          <span class="tech-tag">AI · RAG · LLMs</span>
+        <article class="info-card focus-card focus-card--ai">
+          <span class="focus-card__number">03</span>
+          <span class="focus-card__category">Applied AI</span>
+
+          <h3>Explore intelligence.</h3>
+
+          <ul class="focus-card__list">
+            <li>LLM applications</li>
+            <li>RAG experiments</li>
+            <li>Intelligent systems</li>
+          </ul>
+
+          <div class="focus-card__footer">
+            <span class="tech-tag">AI · RAG · LLMs</span>            
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="selected-work" class="home-section" aria-labelledby="selected-work-title">
-      <div class="section-heading">
-        <p class="eyebrow">Selected Work</p>
-        <h2 id="selected-work-title">Practical experimentation</h2>
+    <section id="selected-work" class="home-section selected-work" aria-labelledby="selected-work-title">
+      <div class="section-heading selected-work">
+        <p class="eyebrow">Selected Work / 03</p>
+        <div class="selected-work__title-row">
+          <h2 id="selected-work-title">Practical experimentation</h2>
+          <!-- <p class="selected-work__intro">Small systems, real constraints, useful outcomes.</p> -->
+        </div>
       </div>
 
       <div class="work-grid">
-        <article class="project-card">
+        <article class="project-card selected-work__project">
+          <span class="selected-work__number">01</span>
           <span class="project-card__category">AI / LLM</span>
           <h3>AI Chatbot</h3>
-          <p>
+          <p class="selected-work__description">
             Conversational AI assistant exploring LLM-based interaction and application integration.
           </p>
-          <span class="tech-tag">.NET · AI · LLM</span>
+          <div class="selected-work__meta">
+            <span class="tech-tag">.NET · AI · LLM</span>
+            <svg lucideBot class="selected-work__icon" size="16" aria-hidden="true"></svg>
+          </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card selected-work__project">
+          <span class="selected-work__number">02</span>
           <span class="project-card__category">REAL-TIME</span>
           <h3>Real-time Broker</h3>
-          <p>Real-time application exploring live data communication using SignalR.</p>
-          <span class="tech-tag">.NET · Angular · SignalR</span>
+          <p class="selected-work__description">
+            Real-time application exploring live data communication using SignalR.
+          </p>
+          <div class="selected-work__meta">
+            <span class="tech-tag">.NET · Angular · SignalR</span>
+            <svg lucideChartNoAxesCombined class="selected-work__icon" size="16" aria-hidden="true"></svg>
+          </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card selected-work__project selected-work__project--ai">
+          <span class="selected-work__number">03</span>
           <span class="project-card__category">AI / RAG</span>
           <h3>RAG Knowledge Assistant</h3>
-          <p>
+          <p class="selected-work__description">
             Retrieval-augmented generation experiment for querying structured and unstructured
             knowledge.
           </p>
-          <span class="tech-tag">.NET · RAG · AI</span>
+          <div class="selected-work__meta">
+            <span class="tech-tag">.NET · RAG · AI</span>
+            <svg lucideBrain class="selected-work__icon" size="16" aria-hidden="true"></svg>
+          </div>
         </article>
       </div>
     </section>
