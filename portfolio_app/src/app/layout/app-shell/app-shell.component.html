@@ -7,3 +7,9 @@
 
   <app-site-footer></app-site-footer>
 </div>
+
+@if (showScrollToTop()) {
+  <app-icon-button class="scroll-to-top" [ariaLabel]="'Back to top'" (buttonClick)="scrollToTop()">
+    <svg lucideArrowUp size="20"></svg>
+  </app-icon-button>
+}

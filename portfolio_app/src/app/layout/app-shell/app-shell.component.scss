@@ -9,3 +9,21 @@
   padding-block: var(--space-8);
   padding-top: 0;
 }
+
+.scroll-to-top {
+  --icon-button-hover-background: var(--color-ia-accent);
+  --icon-button-hover-border-color: var(--color-ia-accent);
+  --icon-button-hover-color: var(--color-text);
+
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .scroll-to-top {
+    right: var(--space-6);
+    bottom: var(--space-6);
+  }
+}
