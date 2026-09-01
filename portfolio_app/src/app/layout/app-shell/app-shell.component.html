@@ -1,0 +1,15 @@
+<div class="app-shell">
+  <app-site-header></app-site-header>
+
+  <main id="main-content" class="main-content" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
+
+  <app-site-footer></app-site-footer>
+</div>
+
+@if (showScrollToTop()) {
+  <app-icon-button class="scroll-to-top" [ariaLabel]="'Back to top'" (buttonClick)="scrollToTop()">
+    <svg lucideArrowUp size="20"></svg>
+  </app-icon-button>
+}

@@ -1,0 +1,44 @@
+<header class="site-header">
+  <div class="content-container header-row">
+    <a class="brand" routerLink="/" aria-label="Portfolio home">
+      <svg lucideRocket size="20"></svg>
+      <span>Portfolio Foundation</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary">
+      @for (link of links; track link.path) {
+        @if (link.implemented) {
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ link.label }}
+          </a>
+        } @else {
+          <span class="pending" aria-disabled="true">{{ link.label }}</span>
+        }
+      }
+    </nav>
+
+    <app-icon-button
+      class="mobile-toggle"
+      [ariaControls]="'mobile-navigation-panel'"
+      [ariaExpanded]="mobileMenuOpen()"
+      [ariaLabel]="menuLabel()"
+      (buttonClick)="toggleMobileMenu()"
+    >
+      @if (mobileMenuOpen()) {
+        <svg lucideX size="20"></svg>
+      } @else {
+        <svg lucideMenu size="20"></svg>
+      }
+    </app-icon-button>
+  </div>
+
+  <app-mobile-navigation
+    [open]="mobileMenuOpen()"
+    [links]="links"
+    (closeMenu)="closeMobileMenu()"
+  ></app-mobile-navigation>
+</header>
