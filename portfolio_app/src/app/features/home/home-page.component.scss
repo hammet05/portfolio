@@ -15,6 +15,10 @@
    flex-direction: column;
   }
 
+.home-page__actions {
+  margin-top: var(--space-8);
+}
+
   .selected-work__project {
     grid-template-columns: 2.5rem minmax(8rem, 1fr) minmax(10rem, 1.4fr);
   }

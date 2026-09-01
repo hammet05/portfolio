@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LucideBrain, LucideCode2, LucideBox, LucideBrainCircuit, LucideBot, 
+import { LucideBrain, LucideCode2, LucideBox, LucideBot, 
           LucideChartNoAxesCombined, LucideDatabase, LucideContainer } from '@lucide/angular';
 interface HeroBadge {
   icon: 'code' | 'box' | 'brain';
@@ -22,7 +22,6 @@ interface Starts {
     LucideChartNoAxesCombined,
     LucideCode2,
     LucideBox,
-    LucideBrainCircuit,
     LucideDatabase,
     LucideContainer
   ],
@@ -34,7 +33,6 @@ interface Starts {
 export class HomePageComponent implements OnInit {
  // Íconos registrados como directivas standalone, mismo patrón que engineering-journey
   readonly LucideBox = LucideBox;
-  readonly LucideBrainCircuit = LucideBrainCircuit;
   readonly LucideBrain = LucideBrain;
   readonly LucideBot = LucideBot;
   readonly LucideChartNoAxesCombined = LucideChartNoAxesCombined;
