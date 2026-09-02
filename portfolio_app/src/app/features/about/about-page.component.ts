@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { LucideBrain, LucideBoxes, LucideCode, LucideGlobe, LucideLayers, LucideLink, LucideMonitor, LucideNetwork, LucideSettings } from '@lucide/angular';
+import { LucideBrain, LucideBoxes, LucideCode, LucideDatabase, LucideGlobe, LucideLayers, LucideLink, LucideMessageSquare, LucideMonitor, LucideNetwork, LucideSettings, LucideSparkles, LucideWorkflow } from '@lucide/angular';
 
 type AboutIcon = 'monitor' | 'globe' | 'network' | 'layers' | 'brain' | 'boxes' | 'link' | 'settings' | 'code';
+type AiFocusIcon = 'message' | 'sparkles' | 'database' | 'workflow';
 
 interface JourneyStage {
   id: string;
@@ -26,6 +26,11 @@ interface Descriptor {
   icon: AboutIcon;
 }
 
+interface AiFocusItem {
+  label: string;
+  icon: AiFocusIcon;
+}
+
 interface ProjectNode {
   label: string;
   icon: AboutIcon;
@@ -35,16 +40,19 @@ interface ProjectNode {
   selector: 'app-about-page',
   standalone: true,
   imports: [
-    RouterLink,
     LucideBrain,
     LucideBoxes,
     LucideCode,
+    LucideDatabase,
     LucideGlobe,
     LucideLayers,
     LucideLink,
+    LucideMessageSquare,
     LucideMonitor,
     LucideNetwork,
-    LucideSettings
+    LucideSettings,
+    LucideSparkles,
+    LucideWorkflow
   ],
   templateUrl: './about-page.component.html',
   styleUrl: './about-page.component.scss'
@@ -91,17 +99,12 @@ export class AboutPageComponent implements AfterViewInit, OnDestroy {
     ] satisfies ProjectNode[]
   };
 
-  protected readonly aiFocus = [
-    'Chatbots and conversational interfaces',
-    'LLM-based applications',
-    'RAG systems for knowledge access',
-    'AI applications embedded in useful workflows'
+  protected readonly aiFocus: AiFocusItem[] = [
+    { label: 'Chatbots and conversational interfaces', icon: 'message' },
+    { label: 'LLM-based applications', icon: 'sparkles' },
+    { label: 'RAG systems for knowledge access', icon: 'database' },
+    { label: 'AI applications embedded in useful workflows', icon: 'workflow' }
   ];
-
-  protected readonly philosophy = {
-    primary: "I don't just want to build AI. I want to build useful systems with AI.",
-    supporting: 'Always learning. Always building.'
-  };
 
   private observer?: IntersectionObserver;
 

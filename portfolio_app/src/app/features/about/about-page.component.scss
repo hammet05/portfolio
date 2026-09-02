@@ -1,1 +1,676 @@
-:host{display:block}
+:host {
+  display: block;
+}
+
+// ============================================================
+// Page shell & section rhythm
+// ============================================================
+.about-page {
+  max-width: var(--container-max-width);
+  margin: auto;
+  padding: 2rem 1rem 0;
+}
+
+.about-section {
+  padding: clamp(2.5rem, 5vw, 5rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-section:first-child {
+  border: 0;
+}
+
+.about-section:last-child {
+  padding-bottom: 0;
+}
+
+.about-page .eyebrow {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+// ============================================================
+// Hero / intro
+// ============================================================
+.intro-content,
+.journey-grid,
+.focus-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.about-intro h1 {
+  max-width: 16ch;
+  font-size: clamp(2.8rem, 5vw, 5.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+}
+
+.hero-accent {
+  color: var(--color-ia-accent);
+}
+
+.hero-description {
+  max-width: 38rem;
+  margin: 1.25rem 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.descriptor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.descriptor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  color: var(--color-text);
+}
+
+.descriptor svg,
+.diagram-node svg {
+  color: var(--color-primary);
+}
+
+.about-icon {
+  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+}
+
+.neural-viz {
+  width: 100%;
+  max-width: 340px;
+  margin: auto;
+}
+
+.neural-face {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 0 18px rgba(91, 140, 255, 0.18));
+}
+
+.neural-face .node {
+  animation: aboutPulse 4s ease-in-out infinite;
+}
+
+.neural-face .connections {
+  animation: aboutFade 5s ease-in-out infinite;
+}
+
+.neural-face .luminous-node {
+  animation: aboutGlow 3s ease-in-out infinite;
+}
+
+// ============================================================
+// Journey / focus grids (shared card look)
+// ============================================================
+.journey-grid,
+.focus-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.focus-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.journey-item,
+.focus-item,
+.story-block {
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.journey-item h2,
+.focus-item h2,
+.story-block h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+.journey-item p,
+.focus-item p,
+.story-block p,
+.story-block li,
+.ai-chapter p,
+.ai-chapter li,
+.philosophy .supporting {
+  color: var(--color-text-muted);
+}
+
+.stage-number {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+.stage-tags,
+.focus-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage-tags li,
+.focus-topics li {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(91, 140, 255, 0.24);
+  border-radius: 999px;
+  color: var(--color-text-subtle);
+  font-size: 0.7rem;
+}
+
+.story-block ul {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.story-block + .story-block {
+  margin-top: 1rem;
+}
+
+// ============================================================
+// Project story diagram
+// ============================================================
+.growth-diagram {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+.growth-diagram .diagram-start {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.growth-diagram .diagram-line-main {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.growth-diagram .diagram-core {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.diagram-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(91, 140, 255, 0.4);
+  border-radius: 0.5rem;
+  background: rgba(91, 140, 255, 0.06);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.diagram-line {
+  width: 1px;
+  height: 1.25rem;
+  background: var(--color-primary);
+}
+
+.diagram-branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 2;
+  grid-row: 3;
+  width: 80%;
+  height: 1rem;
+  border-top: 1px solid var(--color-primary);
+}
+
+.diagram-branches span {
+  border-left: 1px solid var(--color-primary);
+}
+
+.diagram-destinations {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 1 / -1;
+  grid-row: 4;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.impact-note {
+  margin: 1.5rem 0 0;
+  color: var(--color-primary-hover);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+// ============================================================
+// AI chapter — centered statement + capability chips
+// Note: the section relies on the shared `.about-section` top
+// border as its only separator, so it must not carry its own
+// full border/card background (that previously doubled up with
+// the following `.philosophy` section's border and looked like
+// an overlapping edge).
+// ============================================================
+.ai-chapter {
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-statement {
+  max-width: 80%;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.ai-chapter blockquote {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.25;
+}
+
+.ai-capabilities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-capabilities li {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--item-accent-soft, rgba(91, 140, 255, 0.25));
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, rgba(91, 140, 255, 0.06), rgba(147, 76, 255, 0.06));
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.ai-capabilities li:hover {
+  transform: translateY(-2px);
+  border-color: var(--item-accent, var(--color-primary));
+}
+
+.ai-capabilities li:nth-child(1) {
+  --item-accent: #4d8dff;
+  --item-accent-soft: rgba(77, 141, 255, 0.3);
+}
+
+.ai-capabilities li:nth-child(2) {
+  --item-accent: #8f7bff;
+  --item-accent-soft: rgba(143, 123, 255, 0.3);
+}
+
+.ai-capabilities li:nth-child(3) {
+  --item-accent: #a366ff;
+  --item-accent-soft: rgba(163, 102, 255, 0.3);
+}
+
+.ai-capabilities li:nth-child(4) {
+  --item-accent: #c15cff;
+  --item-accent-soft: rgba(193, 92, 255, 0.3);
+}
+
+.ai-cap-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--item-accent, var(--color-primary));
+}
+
+.ai-cap-label {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.ai-field {
+  height: 3rem;
+  margin: 2rem 0 -2.5rem;
+  background:
+    radial-gradient(ellipse at 30% bottom, rgba(91, 140, 255, 0.35), transparent 65%),
+    radial-gradient(ellipse at 70% bottom, rgba(147, 76, 255, 0.3), transparent 65%);
+}
+
+// ============================================================
+// Philosophy closing statement
+// ============================================================
+.philosophy .quote {
+  font-size: clamp(1.5rem, 4vw, 3.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  max-width: 80%;
+  margin: 3rem auto 3.5rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.philosophy .quote-accent {
+  color: var(--color-ia-accent);
+}
+
+// ============================================================
+// Reveal-on-scroll animation
+// ============================================================
+.journey-item,
+.about-page [data-animate] {
+  opacity: 1;
+  transform: none;
+}
+
+.about-page [data-animate].in-view {
+  animation: aboutReveal 0.5s ease both;
+}
+
+@keyframes aboutReveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes aboutPulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes aboutFade {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes aboutGlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+// ============================================================
+// Responsive
+// ============================================================
+@media (min-width: 768px) {
+  .intro-content {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+  }
+
+  .neural-viz {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .diagram-destinations {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .growth-diagram {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.75rem;
+  }
+
+  .growth-diagram .diagram-start,
+  .growth-diagram .diagram-line-main,
+  .growth-diagram .diagram-core,
+  .growth-diagram .diagram-branches,
+  .growth-diagram .diagram-destinations {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .growth-diagram .diagram-line-main {
+    height: 1rem;
+  }
+
+  .diagram-branches {
+    height: 1rem;
+  }
+
+  .ai-statement {
+    max-width: 100%;
+  }
+
+  .ai-capabilities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .about-page [data-animate],
+  .neural-face .node,
+  .neural-face .connections,
+  .neural-face .luminous-node {
+    animation: none !important;
+  }
+}
+
+// ============================================================
+// Engineering Journey — horizontal timeline layout
+// ============================================================
+.engineering-journey {
+  &.about-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .journey-grid {
+    position: relative;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 1.5rem;
+    row-gap: 0;
+    padding-top: 0.5rem;
+  }
+
+  // Línea horizontal continua, degradado azul → púrpura
+  .journey-grid::before {
+    content: '';
+    position: absolute;
+    top: 9.1rem;
+    left: 2%;
+    right: 2%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      #4a8fe7,
+      #5a87e0,
+      #7b7fe0,
+      #9b72e0,
+      #b95fe0
+    );
+    box-shadow: 0 0 8px 1px rgba(123, 127, 224, 0.45);
+  }
+
+  .journey-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+
+    // Acento por columna (azul → púrpura), sin necesidad de JS
+    &:nth-child(1) {
+      --item-accent: #4a8fe7;
+      --item-accent-soft: rgba(74, 143, 231, 0.35);
+    }
+    &:nth-child(2) {
+      --item-accent: #5a87e0;
+      --item-accent-soft: rgba(90, 135, 224, 0.35);
+    }
+    &:nth-child(3) {
+      --item-accent: #7b7fe0;
+      --item-accent-soft: rgba(123, 127, 224, 0.35);
+    }
+    &:nth-child(4) {
+      --item-accent: #9b72e0;
+      --item-accent-soft: rgba(155, 114, 224, 0.35);
+    }
+    &:nth-child(5) {
+      --item-accent: #b95fe0;
+      --item-accent-soft: rgba(185, 95, 224, 0.35);
+    }
+  }
+
+  // Punto sobre la línea, alineado con el ::before del grid
+  .journey-item::before {
+    content: '';
+    position: absolute;
+    top: 8.3rem;
+    left: 50%;
+    width: 0.9rem;
+    height: 0.9rem;
+    transform: translateX(-50%);
+    border: 2px solid var(--item-accent, var(--color-primary));
+    border-radius: 50%;
+    background: var(--color-bg);
+    box-shadow: 0 0 10px 2px var(--item-accent-soft, rgba(91, 140, 255, 0.35));
+    z-index: 1;
+  }
+
+  .stage-number {
+    margin: 0 0 0.35rem;
+    color: var(--item-accent, var(--color-primary));
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .about-icon {
+    box-sizing: border-box;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 0.55rem;
+    border: 1px solid var(--item-accent-soft, var(--color-border));
+    border-radius: 0.6rem;
+    color: var(--item-accent, var(--color-primary));
+  }
+
+  h2 {
+    min-height: 2.6rem;
+    margin: 0 0 1.75rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  // El último hito ("Exploring Intelligence") lleva el título en su acento,
+  // igual que en el diseño de referencia
+  .journey-item:last-child h2 {
+    color: var(--item-accent);
+  }
+
+  // El resumen se conserva para lectores de pantalla pero no se muestra,
+  // ya que el diseño de referencia no incluye copy debajo del título.
+  // Escopeado a .journey-item para no afectar al <p class="eyebrow">.
+  .journey-item p {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .stage-tags {
+    display: grid;
+    gap: 0.4rem;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      width: auto;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: none;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  // Mobile: se apila en una columna y se oculta la línea horizontal
+  @media (max-width: 767px) {
+    .journey-grid {
+      grid-template-columns: 1fr;
+      row-gap: 2.5rem;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .journey-item::before {
+      display: none;
+    }
+
+    h2 {
+      min-height: 0;
+    }
+  }
+}
+

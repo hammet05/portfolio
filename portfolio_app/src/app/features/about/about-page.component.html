@@ -433,15 +433,28 @@
 
   <section class="about-section ai-chapter" data-animate>
     <p class="eyebrow">05 / THE AI CHAPTER</p>
-    <blockquote>AI is not the end of software engineering. It is another way to extend what we can build.</blockquote>
-    <p>
-      My work sits between human intelligence and artificial intelligence, with a practical focus on
-      products that solve real problems.
-    </p>
+
+    <div class="ai-statement">
+      <blockquote>AI is not the end of software engineering. It is another way to extend what we can build.</blockquote>
+      <p>
+        My work sits between human intelligence and artificial intelligence, with a practical focus on
+        products that solve real problems.
+      </p>
+    </div>
 
     <ul class="ai-capabilities">
-      @for (item of aiFocus; track item) {
-        <li><svg lucideBrain size="18"></svg><span>{{ item }}</span></li>
+      @for (item of aiFocus; track item.label) {
+        <li>
+          <span class="ai-cap-icon">
+            @switch (item.icon) {
+              @case ('message') { <svg lucideMessageSquare size="20"></svg> }
+              @case ('sparkles') { <svg lucideSparkles size="20"></svg> }
+              @case ('database') { <svg lucideDatabase size="20"></svg> }
+              @case ('workflow') { <svg lucideWorkflow size="20"></svg> }
+            }
+          </span>
+          <span class="ai-cap-label">{{ item.label }}</span>
+        </li>
       }
     </ul>
     <div class="ai-field" aria-hidden="true"></div>
@@ -449,8 +462,6 @@
 
   <section class="about-section philosophy" data-animate>
     <p class="eyebrow">06 / MY PHILOSOPHY</p>
-    <p class="quote">{{ philosophy.primary }}</p>
-    <p class="supporting">{{ philosophy.supporting }}</p>
-    <a class="philosophy-link" routerLink="/">Return to the portfolio</a>
+    <p class="quote">Always learning. <span class="quote-accent">Always building</span></p>
   </section>
 </section>
